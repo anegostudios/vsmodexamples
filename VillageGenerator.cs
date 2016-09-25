@@ -5,9 +5,9 @@ namespace Vintagestory.ServerMods
 {
     public class VillageGenerator : ModBase
     {
-        ICoreAPI api;
+        ICoreServerAPI api;
 
-        public override void Start(ICoreAPI api)
+        public override void Start(ICoreServerAPI api)
         {
             this.api = api;
             this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);

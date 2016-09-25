@@ -1,26 +1,41 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Vintagestory.API;
 
 namespace Vintagestory.ServerMods
 {
-    public class ExampleModWorldEdit : ModBase
+    public enum EnumOrigin
     {
-        ICoreAPI api;
+        StartPos,
+        BottomCenter,
+        TopCenter
+    }
+
+    public class WorldEdit : ModBase
+    {
+        ICoreServerAPI api;
         BlockPos startMarker, endMarker;
 
         // Because I'm too lazy to type it over and over again ;-)
         int clientId;
         int groupId;
 
+        string exportFolderPath;
 
-        public override void Start(ICoreAPI api)
+        public override void Start(ICoreServerAPI api)
         {
             this.api = api;
 
-            api.Server.RegisterPrivilege("worldeditx", "Ability to use world edit tools");
+            exportFolderPath = api.GetOrCreateDataPath("WorldEdit");
 
-            api.RegisterCommand("xwe", "World edit tools (example mod)", "[clear|ms|me|clearm|block|fillm]", CmdEdit, "worldeditx");
+            api.Server.RegisterPrivilege("worldedit", "Ability to use world edit tools");
+
+            api.RegisterCommand("we", "World edit tools", "[ms|me|mc|mex|cla|clm|fillm|blu]", CmdEdit, "worldedit");
         }
 
 
@@ -28,6 +43,7 @@ namespace Vintagestory.ServerMods
         {
             api.Player.SendMessage(clientId, groupId, message, EnumChatType.CommandSuccess);
         }
+
         void Bad(string message)
         {
             api.Player.SendMessage(clientId, groupId, message, EnumChatType.CommandError);
@@ -47,20 +63,81 @@ namespace Vintagestory.ServerMods
             }
             switch (args[0])
             {
-                case "blocklineup":
+                case "mex":
+
+                    if (startMarker == null || endMarker == null)
+                    {
+                        Bad("Please mark start and end position");
+                        break;
+                    }
+
+                    if (args.Length < 2)
+                    {
+                        Bad("Please provide a filename");
+                        break;
+                    }
+
+                    ExportArea(args[1], startMarker, endMarker);
+                    break;
+
+                case "imp":
+
+                    if (startMarker == null)
+                    {
+                        Bad("Please mark a start position");
+                        break;
+                    }
+
+                    if (args.Length < 2)
+                    {
+                        Bad("Please provide a filename");
+                        break;
+                    }
+
+                    EnumOrigin origin = EnumOrigin.StartPos;
+
+                    if (args.Length > 2)
+                    {
+                        try
+                        {
+                            origin = (EnumOrigin)Enum.Parse(typeof(EnumOrigin), args[2]);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                    }
+
+                    ImportArea(args[1], startMarker, origin);
+
+                    break;
+
+
+                case "blu":
                     BlockLineup(centerPos);
                     Good("Block lineup created");
                     break;
+                
+                // Mark start
                 case "ms":
                     startMarker = centerPos;
                     Good("Start position " + startMarker + " marked");
                     break;
 
+                // Mark end
                 case "me":
                     endMarker = centerPos;
                     Good("End position " + endMarker + " marked");
                     break;
 
+                // Mark clear
+                case "mc":
+                    startMarker = null;
+                    endMarker = null;
+                    Good("Marked positions cleared");
+                    break;
+
+                // Fill marked
                 case "fillm":
                     if (startMarker == null || endMarker == null)
                     {
@@ -83,7 +160,8 @@ namespace Vintagestory.ServerMods
 
                     break;
 
-                case "clearm":
+                // Clear marked
+                case "clm":
                     {
                         if (startMarker == null || endMarker == null)
                         {
@@ -96,7 +174,8 @@ namespace Vintagestory.ServerMods
                     }
                     break;
 
-                case "clear":
+                // Clear area
+                case "cla":
                     {
                         if (args.Length < 2)
                         {
@@ -131,6 +210,7 @@ namespace Vintagestory.ServerMods
                         
             }
         }
+
 
         private void BlockLineup(BlockPos pos)
         {
@@ -172,6 +252,7 @@ namespace Vintagestory.ServerMods
             int dx = finalPos.X - startPos.X;
             int dy = finalPos.Y - startPos.Y;
             int dz = finalPos.Z - startPos.Z;
+
             if (dx * dy * dz > 1000)
             {
                 Good((blockId == 0 ? "Clearing" : "Placing") + " " + (dx * dy * dz) + " blocks...");
@@ -199,6 +280,115 @@ namespace Vintagestory.ServerMods
             blockAcccessor.Commit();
 
             return updated;
+        }
+
+
+        private void ImportArea(string filename, BlockPos startPos, EnumOrigin origin)
+        {
+            string infilepath = Path.Combine(exportFolderPath, filename);
+
+            if (!File.Exists(infilepath) && File.Exists(infilepath + ".json"))
+            {
+                infilepath += ".json";
+            }
+
+            if (!File.Exists(infilepath))
+            {
+                Bad("Can't import " + filename + ", it does not exist");
+                return;
+            }
+
+            BlockData blockdata = null;
+
+            try
+            {
+                using (TextReader textReader = new StreamReader(infilepath))
+                {
+                    blockdata = JsonConvert.DeserializeObject<BlockData>(textReader.ReadToEnd());
+                    textReader.Close();
+                }
+            }
+            catch (IOException e)
+            {
+                Good("Failed loading " + filename + " : " + e.Message);
+                return;
+            }
+
+            BlockPos originPos = startPos.Copy();
+
+            if (origin == EnumOrigin.TopCenter)
+            {
+                originPos.X -= blockdata.SizeX / 2;
+                originPos.Y -= blockdata.SizeY;
+                originPos.Z -= blockdata.SizeZ / 2;
+            }
+            if (origin == EnumOrigin.BottomCenter)
+            {
+                originPos.X -= blockdata.SizeX / 2;
+                originPos.Z -= blockdata.SizeZ / 2;
+            }
+
+
+            IBlockAccesor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true, false);
+
+            blockdata.Unpack(blockAcccessor, originPos);
+            blockdata.Place(blockAcccessor);
+
+            blockAcccessor.Commit();
+        }
+
+
+        private void ExportArea(string filename, BlockPos start, BlockPos end)
+        {
+            int exported = 0;
+
+            IBlockAccesor blockAcccessor = api.World.GetBlockAccessor(false, false, false);
+
+            BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
+            BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));
+
+            BlockData blockdata = new BlockData();
+
+            for (int x = startPos.X; x < finalPos.X; x++)
+            {
+                for (int y = startPos.Y; y < finalPos.Y; y++)
+                {
+                    for (int z = startPos.Z; z < finalPos.Z; z++)
+                    {
+                        BlockPos pos = new BlockPos(x, y, z);
+                        ushort blockid = blockAcccessor.GetBlockId(pos);
+                        if (blockid == 0) continue;
+
+                        blockdata.BlocksUnpacked[pos] = blockid;
+                        exported++;
+                    }
+                }
+            }
+
+            blockdata.Pack(blockAcccessor, startPos);
+
+            string outfilepath = Path.Combine(exportFolderPath, filename);
+
+            if (!outfilepath.EndsWith(".json"))
+            {
+                outfilepath += ".json";
+            }
+
+            try
+            {
+                using (TextWriter textWriter = new StreamWriter(outfilepath))
+                {
+                    textWriter.Write(JsonConvert.SerializeObject(blockdata, Formatting.None));
+                    textWriter.Close();
+                }
+            }
+            catch (IOException e)
+            {
+                Good("Failed exporting: " + e.Message);
+                return;
+            }
+
+            Good(exported + " blocks exported.");
         }
     }
 }

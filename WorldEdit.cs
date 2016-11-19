@@ -34,7 +34,7 @@ namespace Vintagestory.ServerMods
 
             api.Server.RegisterPrivilege("worldedit", "Ability to use world edit tools");
 
-            api.RegisterCommand("we", "World edit tools", "[ms|me|mc|mex|cla|clm|fillm|blu]", CmdEdit, "worldedit");
+            api.RegisterCommand("wo", "World edit tools (Old Version)", "[ms|me|mc|mex|cla|clm|fillm|blu]", CmdEdit, "worldedit");
         }
 
 

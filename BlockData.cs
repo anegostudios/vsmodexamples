@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API;
+using Vintagestory.API.Datastructures;
+using Vintagestory.API.Interfaces;
 
 namespace Vintagestory.ServerMods
 {
@@ -96,7 +98,7 @@ namespace Vintagestory.ServerMods
                 string blockCode = BlockCodes[storedBlockid];
                 ushort blockId = blockAccessor.GetBlockType(blockCode).BlockId;
 
-                BlocksUnpacked[startPos.OffsetCopy(dx, dy, dz)] = blockId;
+                BlocksUnpacked[startPos.AddCopy(dx, dy, dz)] = blockId;
             }
         }
 

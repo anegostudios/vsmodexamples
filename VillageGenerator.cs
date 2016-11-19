@@ -1,5 +1,7 @@
 ﻿using System;
 using Vintagestory.API;
+using Vintagestory.API.Datastructures;
+using Vintagestory.API.Interfaces;
 
 namespace Vintagestory.ServerMods
 {
@@ -11,6 +13,7 @@ namespace Vintagestory.ServerMods
         {
             this.api = api;
             this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);
+            
         }
 
         private void CmdGenHouse(int clientId, int groupId, string[] args)
@@ -29,7 +32,7 @@ namespace Vintagestory.ServerMods
                         if (Math.Abs(dx) != 3 && Math.Abs(dz) != 3 && dy < 3) continue; // Hollow
                         if (dx == -3 && dz == 0 && dy < 2) continue; // Door
 
-                        blockAccessor.SetBlock(blockID, pos.OffsetCopy(dx, dy, dz));
+                        blockAccessor.SetBlock(blockID, pos.AddCopy(dx, dy, dz));
                     }
                 }
             }

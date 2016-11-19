@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API;
+using Vintagestory.API.Datastructures;
+using Vintagestory.API.Interfaces;
 
 namespace Vintagestory.ServerMods
 {
@@ -197,7 +196,7 @@ namespace Vintagestory.ServerMods
                         }
 
 
-                        int cleared = FillArea(0, centerPos.OffsetCopy(-size, 0, -size), centerPos.OffsetCopy(size, height, size));
+                        int cleared = FillArea(0, centerPos.AddCopy(-size, 0, -size), centerPos.AddCopy(size, height, size));
 
                         Good(cleared + " Blocks cleared");
                     }
@@ -227,13 +226,13 @@ namespace Vintagestory.ServerMods
 
             int width = (int)Math.Sqrt(existingBlocks.Count);
 
-            FillArea(0, pos.OffsetCopy(0, 0, 0), pos.OffsetCopy(width + 1, 10, width + 1));
+            FillArea(0, pos.AddCopy(0, 0, 0), pos.AddCopy(width + 1, 10, width + 1));
 
             for (int i = 0; i < existingBlocks.Count; i++)
             {
                 if (existingBlocks[i] == null || existingBlocks[i].Code == null) continue;
 
-                blockAccess.SetBlock(blocks[i].BlockId, pos.OffsetCopy(i / width, 0, i % width));
+                blockAccess.SetBlock(blocks[i].BlockId, pos.AddCopy(i / width, 0, i % width));
             }
 
             blockAccess.Commit();

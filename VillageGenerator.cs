@@ -13,14 +13,13 @@ namespace Vintagestory.ServerMods
         {
             this.api = api;
             this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);
-            
         }
 
         private void CmdGenHouse(int clientId, int groupId, string[] args)
         {
             IBlockAccesor blockAccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
-            ushort blockID = api.World.GetBlockId("log-birch");
-
+            ushort blockID = api.World.GetBlockId("log-birch-ud");
+            
             BlockPos pos = api.Player.GetPosition(clientId).AsBlockPos;
 
             for (int dx = -3; dx <= 3; dx++)

@@ -6,4 +6,4 @@ directly from within Visual Studio.
 - There is a post build event that copies the .dll and .pdb files into %appdata%/VintageStory/Mods. You only need to touch that one if you installed vintage story somewhere else
 - A command line argument /flatworld is set in the Debug tab as well. It cause Vintagestory to automatically start a superflat creative world for you to test the mod.
 - A tiny mod RedirectLogs.cs is included that redirects the log output into the visual studio output window for developement and testing
-- Even Edit&Continue seems to work just fine \o/
+- Even [Edit&Continue seems](https://msdn.microsoft.com/en-us/library/bcew296c.aspx) to work just fine \o/

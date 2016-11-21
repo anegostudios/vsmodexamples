@@ -8,7 +8,7 @@ using Vintagestory.API;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Interfaces;
 
-namespace Vintagestory.ServerMods
+namespace Vintagestory.ModSamples
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class BlockData
@@ -29,7 +29,7 @@ namespace Vintagestory.ServerMods
 
         public Dictionary<BlockPos, ushort> BlocksUnpacked = new Dictionary<BlockPos, ushort>();
 
-        public bool Pack(IBlockAccesor blockAccessor, BlockPos startPos)
+        public bool Pack(IBlockAccessor blockAccessor, BlockPos startPos)
         {
             BlockCodes.Clear();
             Indices.Clear();
@@ -82,7 +82,7 @@ namespace Vintagestory.ServerMods
             return true;
         }
 
-        public void Unpack(IBlockAccesor blockAccessor, BlockPos startPos)
+        public void Unpack(IBlockAccessor blockAccessor, BlockPos startPos)
         {
             BlocksUnpacked.Clear();
 
@@ -103,7 +103,7 @@ namespace Vintagestory.ServerMods
         }
 
 
-        public int Place(IBlockAccesor blockAccessor)
+        public int Place(IBlockAccessor blockAccessor)
         {
             int placed = 0;
             foreach (var val in BlocksUnpacked)

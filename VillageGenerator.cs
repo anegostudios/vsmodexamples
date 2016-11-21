@@ -3,13 +3,13 @@ using Vintagestory.API;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Interfaces;
 
-namespace Vintagestory.ServerMods
+namespace Vintagestory.ModSamples
 {
     public class VillageGenerator : ModBase
     {
         ICoreServerAPI api;
 
-        public override void Start(ICoreServerAPI api)
+        public override void StartServerSide(ICoreServerAPI api)
         {
             this.api = api;
             this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);
@@ -17,7 +17,7 @@ namespace Vintagestory.ServerMods
 
         private void CmdGenHouse(int clientId, int groupId, string[] args)
         {
-            IBlockAccesor blockAccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
+            IBlockAccessor blockAccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
             ushort blockID = api.World.GetBlockId("log-birch-ud");
             
             BlockPos pos = api.Player.GetPosition(clientId).AsBlockPos;

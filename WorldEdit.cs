@@ -6,7 +6,7 @@ using Vintagestory.API;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Interfaces;
 
-namespace Vintagestory.ServerMods
+namespace Vintagestory.ModSamples
 {
     public enum EnumOrigin
     {
@@ -26,7 +26,7 @@ namespace Vintagestory.ServerMods
 
         string exportFolderPath;
 
-        public override void Start(ICoreServerAPI api)
+        public override void StartServerSide(ICoreServerAPI api)
         {
             this.api = api;
 
@@ -213,7 +213,7 @@ namespace Vintagestory.ServerMods
 
         private void BlockLineup(BlockPos pos)
         {
-            IBlockAccesor blockAccess = api.World.GetBlockAccessorBulkUpdate(true, true);
+            IBlockAccessor blockAccess = api.World.GetBlockAccessorBulkUpdate(true, true);
             Block[] blocks = api.World.GetBlockTypes();
 
 
@@ -242,7 +242,7 @@ namespace Vintagestory.ServerMods
         {
             int updated = 0;
 
-            IBlockAccesor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
+            IBlockAccessor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
 
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));
@@ -328,7 +328,7 @@ namespace Vintagestory.ServerMods
             }
 
 
-            IBlockAccesor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true, false);
+            IBlockAccessor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true, false);
 
             blockdata.Unpack(blockAcccessor, originPos);
             blockdata.Place(blockAcccessor);
@@ -341,7 +341,7 @@ namespace Vintagestory.ServerMods
         {
             int exported = 0;
 
-            IBlockAccesor blockAcccessor = api.World.GetBlockAccessor(false, false, false);
+            IBlockAccessor blockAcccessor = api.World.GetBlockAccessor(false, false, false);
 
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));

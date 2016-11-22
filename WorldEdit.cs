@@ -21,7 +21,7 @@ namespace Vintagestory.ModSamples
         BlockPos startMarker, endMarker;
 
         // Because I'm too lazy to type it over and over again ;-)
-        int clientId;
+        IServerPlayer player;
         int groupId;
 
         string exportFolderPath;
@@ -32,7 +32,7 @@ namespace Vintagestory.ModSamples
 
             exportFolderPath = api.GetOrCreateDataPath("WorldEdit");
 
-            api.Server.RegisterPrivilege("worldedit", "Ability to use world edit tools");
+            api.RegisterPrivilege("worldedit", "Ability to use world edit tools");
 
             api.RegisterCommand("wo", "World edit tools (Old Version)", "[ms|me|mc|mex|cla|clm|fillm|blu]", CmdEdit, "worldedit");
         }
@@ -40,20 +40,20 @@ namespace Vintagestory.ModSamples
 
         void Good(string message)
         {
-            api.Player.SendMessage(clientId, groupId, message, EnumChatType.CommandSuccess);
+            player.SendMessage(groupId, message, EnumChatType.CommandSuccess);
         }
 
         void Bad(string message)
         {
-            api.Player.SendMessage(clientId, groupId, message, EnumChatType.CommandError);
+            player.SendMessage(groupId, message, EnumChatType.CommandError);
         }
 
-        private void CmdEdit(int clientId, int groupId, string[] args)
+        private void CmdEdit(IServerPlayer player, int groupId, string[] args)
         {
-            this.clientId = clientId;
+            this.player = player;
             this.groupId = groupId;
 
-            BlockPos centerPos = api.Player.GetPosition(clientId).AsBlockPos;
+            BlockPos centerPos = player.Entity.Position.AsBlockPos;
 
             if (args.Length == 0)
             {
@@ -144,7 +144,7 @@ namespace Vintagestory.ModSamples
                         return;
                     }
 
-                    IPlayerInventoryManager plrInv = api.Player.GetPlayerInventoryManager(clientId);
+                    IPlayerInventoryManager plrInv = player.InventoryManager;
                     IItemStack stack = plrInv.GetSelectedHotbarSlot().Itemstack;
 
                     if (stack == null || stack.ItemClass == EnumItemClass.Item)

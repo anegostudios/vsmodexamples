@@ -15,12 +15,12 @@ namespace Vintagestory.ModSamples
             this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);
         }
 
-        private void CmdGenHouse(int clientId, int groupId, string[] args)
+        private void CmdGenHouse(IServerPlayer player, int groupId, string[] args)
         {
             IBlockAccessor blockAccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
             ushort blockID = api.World.GetBlockId("log-birch-ud");
             
-            BlockPos pos = api.Player.GetPosition(clientId).AsBlockPos;
+            BlockPos pos = player.Entity.Position.AsBlockPos;
 
             for (int dx = -3; dx <= 3; dx++)
             {
@@ -38,7 +38,7 @@ namespace Vintagestory.ModSamples
 
             blockAccessor.Commit();
 
-            api.Player.AddNpc("Jeniffer", pos.UpCopy());
+            api.AddNpc("Jeniffer", pos.UpCopy());
         }
     }
 }

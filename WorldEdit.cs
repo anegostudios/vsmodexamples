@@ -15,6 +15,9 @@ namespace Vintagestory.ModSamples
         TopCenter
     }
 
+    /// <summary>
+    /// This is an old version of the worldedit mod that always ships with the game. Might be an interesting read for you in understanding how to go about in making world edit tools.
+    /// </summary>
     public class WorldEdit : ModBase
     {
         ICoreServerAPI api;
@@ -213,8 +216,8 @@ namespace Vintagestory.ModSamples
 
         private void BlockLineup(BlockPos pos)
         {
-            IBlockAccessor blockAccess = api.World.GetBlockAccessorBulkUpdate(true, true);
-            Block[] blocks = api.World.GetBlockTypes();
+            IBlockAccessor blockAccess = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
+            Block[] blocks = api.WorldManager.BlockTypes;
 
 
             List<Block> existingBlocks = new List<Block>();
@@ -242,7 +245,7 @@ namespace Vintagestory.ModSamples
         {
             int updated = 0;
 
-            IBlockAccessor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
+            IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
 
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));
@@ -328,7 +331,7 @@ namespace Vintagestory.ModSamples
             }
 
 
-            IBlockAccessor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true, false);
+            IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true, false);
 
             blockdata.Unpack(blockAcccessor, originPos);
             blockdata.Place(blockAcccessor);
@@ -341,7 +344,7 @@ namespace Vintagestory.ModSamples
         {
             int exported = 0;
 
-            IBlockAccessor blockAcccessor = api.World.GetBlockAccessor(false, false, false);
+            IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessor(false, false, false);
 
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));

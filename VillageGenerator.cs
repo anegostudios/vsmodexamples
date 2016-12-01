@@ -5,6 +5,9 @@ using Vintagestory.API.Interfaces;
 
 namespace Vintagestory.ModSamples
 {
+    /// <summary>
+    /// Super basic example on how to set blocks in the game
+    /// </summary>
     public class VillageGenerator : ModBase
     {
         ICoreServerAPI api;
@@ -17,8 +20,8 @@ namespace Vintagestory.ModSamples
 
         private void CmdGenHouse(IServerPlayer player, int groupId, string[] args)
         {
-            IBlockAccessor blockAccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
-            ushort blockID = api.World.GetBlockId("log-birch-ud");
+            IBlockAccessor blockAccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
+            ushort blockID = api.WorldManager.GetBlockId("log-birch-ud");
             
             BlockPos pos = player.Entity.Position.AsBlockPos;
 

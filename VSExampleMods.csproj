@@ -45,6 +45,10 @@
       <HintPath>packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\AppData\Roaming\Vintagestory\Lib\protobuf-net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockData.cs" />
-    <Compile Include="ClockworkOrange.cs" />
+    <Compile Include="NetworkApiTest.cs" />
     <Compile Include="RedirectLogs.cs" />
     <Compile Include="VillageGenerator.cs" />
     <Compile Include="WorldEdit.cs" />
@@ -72,8 +76,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) %25appdata%25\Vintagestory\Mods\
-copy $(TargetDir)\$(TargetName).pdb %25appdata%25\Vintagestory\Mods\
+    <PostBuildEvent>copy $(TargetPath) "%25appdata%25\Vintagestory\Mods\"
+copy $(TargetDir)\$(TargetName).pdb "%25appdata%25\Vintagestory\Mods\"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

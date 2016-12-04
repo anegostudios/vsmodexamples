@@ -8,13 +8,6 @@ using Vintagestory.API.Interfaces;
 
 namespace Vintagestory.ModSamples
 {
-    public enum EnumOrigin
-    {
-        StartPos,
-        BottomCenter,
-        TopCenter
-    }
-
     /// <summary>
     /// This is an old version of the worldedit mod that always ships with the game. Might be an interesting read for you in understanding how to go about in making world edit tools.
     /// </summary>

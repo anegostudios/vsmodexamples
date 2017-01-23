@@ -141,15 +141,15 @@ namespace Vintagestory.ModSamples
                     }
 
                     IPlayerInventoryManager plrInv = player.InventoryManager;
-                    IItemStack stack = plrInv.GetSelectedHotbarSlot().Itemstack;
+                    IItemStack stack = plrInv.ActiveHotbarSlot.Itemstack;
 
-                    if (stack == null || stack.ItemClass == EnumItemClass.Item)
+                    if (stack == null || stack.Kind == EnumItemClass.Item)
                     {
                         Bad("Please put the desired block in your active hotbar slot");
                         return;
                     }
 
-                    int filled = FillArea((ushort)stack.ItemId, startMarker, endMarker);
+                    int filled = FillArea((ushort)stack.Id, startMarker, endMarker);
 
                     Good(filled + " marked blocks placed");
 

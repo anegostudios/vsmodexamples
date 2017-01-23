@@ -16,6 +16,14 @@ namespace Vintagestory.ModSamples
         {
             this.api = api;
             this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);
+            this.api.RegisterCommand("block", "", "Places a block 2m in front of you", CmdBlock, Privilege.controlserver);
+        }
+
+        private void CmdBlock(IServerPlayer player, int groupId, string[] args)
+        {
+            ushort blockID = api.WorldManager.GetBlockId("log-birch-ud");
+            BlockPos pos = player.Entity.Position.HorizontalAheadCopy(2).AsBlockPos;
+            api.World.BlockAccessor.SetBlock(blockID, pos);
         }
 
         private void CmdGenHouse(IServerPlayer player, int groupId, string[] args)

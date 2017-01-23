@@ -96,7 +96,7 @@ namespace Vintagestory.ModSamples
                 if (val.Value == 0) continue;
 
                 // Store a block mapping
-                string blockCode = blockAccessor.GetBlockType(val.Value).Code;
+                string blockCode = blockAccessor.GetBlock(val.Value).Code;
                 BlockCodes[val.Value] = blockCode;
 
                 // Store relative position and the block id
@@ -138,11 +138,11 @@ namespace Vintagestory.ModSamples
 
                 if (Angle != 0)
                 {
-                    string newCode = blockAccessor.GetBlockType(blockCode).GetRotatedBlockCode(Angle);
-                    blockId = blockAccessor.GetBlockType(newCode).BlockId;
+                    string newCode = blockAccessor.GetBlock(blockCode).GetRotatedBlockCode(Angle);
+                    blockId = blockAccessor.GetBlock(newCode).BlockId;
                 } else
                 {
-                    blockId = blockAccessor.GetBlockType(blockCode).BlockId;
+                    blockId = blockAccessor.GetBlock(blockCode).BlockId;
                 }
 
                 dx -= SizeX / 2;
@@ -201,7 +201,7 @@ namespace Vintagestory.ModSamples
                         if (blockAccessor.GetBlockId(val.Key) != 0) continue;
                     } else
                     {
-                        if (blockAccessor.GetBlockType(val.Key).Replaceable <= blockAccessor.GetBlockType(val.Value).Replaceable) continue;
+                        if (blockAccessor.GetBlock(val.Key).Replaceable <= blockAccessor.GetBlock(val.Value).Replaceable) continue;
                     }
                     
 

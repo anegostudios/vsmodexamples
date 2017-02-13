@@ -44,12 +44,12 @@ namespace Vintagestory.ModSamples
             player.SendMessage(groupId, message, EnumChatType.CommandError);
         }
 
-        private void CmdEdit(IServerPlayer player, int groupId, string[] args)
+        private void CmdEdit(IServerPlayer player, int groupId, CmdArgs args)
         {
             this.player = player;
             this.groupId = groupId;
 
-            BlockPos centerPos = player.Entity.Position.AsBlockPos;
+            BlockPos centerPos = player.Entity.Pos.AsBlockPos;
 
             if (args.Length == 0)
             {

@@ -72,7 +72,7 @@ namespace Vintagestory.ServerMods
             api.RegisterCommand("nwtest", "Send a test network message", "", OnNwTestCmd, Privilege.controlserver);
         }
 
-        private void OnNwTestCmd(IServerPlayer player, int groupId, string[] args)
+        private void OnNwTestCmd(IServerPlayer player, int groupId, CmdArgs args)
         {
             serverChannel.BroadcastPacket(new NetworkApiTestMessage()
             {

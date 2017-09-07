@@ -1,7 +1,7 @@
 ﻿using System;
-using Vintagestory.API;
-using Vintagestory.API.Datastructures;
-using Vintagestory.API.Interfaces;
+using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
+using Vintagestory.API.Server;
 
 namespace Vintagestory.ModSamples
 {
@@ -22,7 +22,7 @@ namespace Vintagestory.ModSamples
 
         private void CmdBlock(IServerPlayer player, int groupId, CmdArgs args)
         {
-            ushort blockID = api.WorldManager.GetBlockId("log-birch-ud");
+            ushort blockID = api.WorldManager.GetBlockId(new AssetLocation("log-birch-ud"));
             BlockPos pos = player.Entity.Pos.HorizontalAheadCopy(2).AsBlockPos;
             api.World.BlockAccessor.SetBlock(blockID, pos);
         }
@@ -30,7 +30,7 @@ namespace Vintagestory.ModSamples
         private void CmdGenHouse(IServerPlayer player, int groupId, CmdArgs args)
         {
             IBlockAccessor blockAccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
-            ushort blockID = api.WorldManager.GetBlockId("log-birch-ud");
+            ushort blockID = api.WorldManager.GetBlockId(new AssetLocation("log-birch-ud"));
             
             BlockPos pos = player.Entity.Pos.AsBlockPos;
 

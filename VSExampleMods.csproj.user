@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Users\jchappelle\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
+    <StartProgram>C:\Users\tyron\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
     <StartArguments>/flatworld</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">

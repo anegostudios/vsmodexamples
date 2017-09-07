@@ -2,9 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Vintagestory.API;
-using Vintagestory.API.Datastructures;
-using Vintagestory.API.Interfaces;
+using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
+using Vintagestory.API.MathTools;
+using Vintagestory.API.Server;
 
 namespace Vintagestory.ModSamples
 {
@@ -143,7 +144,7 @@ namespace Vintagestory.ModSamples
                     IPlayerInventoryManager plrInv = player.InventoryManager;
                     IItemStack stack = plrInv.ActiveHotbarSlot.Itemstack;
 
-                    if (stack == null || stack.Kind == EnumItemClass.Item)
+                    if (stack == null || stack.Class == EnumItemClass.Item)
                     {
                         Bad("Please put the desired block in your active hotbar slot");
                         return;

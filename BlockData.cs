@@ -2,12 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API;
-using Vintagestory.API.Datastructures;
-using Vintagestory.API.Interfaces;
+using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
 
 namespace Vintagestory.ModSamples
 {
@@ -25,7 +22,7 @@ namespace Vintagestory.ModSamples
         [JsonProperty]
         public int SizeZ;
         [JsonProperty]
-        public Dictionary<int, string> BlockCodes = new Dictionary<int, string>();
+        public Dictionary<int, AssetLocation> BlockCodes = new Dictionary<int, AssetLocation>();
         [JsonProperty]
         public List<uint> Indices = new List<uint>();
         [JsonProperty]
@@ -96,7 +93,7 @@ namespace Vintagestory.ModSamples
                 if (val.Value == 0) continue;
 
                 // Store a block mapping
-                string blockCode = blockAccessor.GetBlock(val.Value).Code;
+                AssetLocation blockCode = blockAccessor.GetBlock(val.Value).Code;
                 BlockCodes[val.Value] = blockCode;
 
                 // Store relative position and the block id
@@ -133,12 +130,12 @@ namespace Vintagestory.ModSamples
                     dy = SizeY - dy;
                 }
 
-                string blockCode = BlockCodes[storedBlockid];
+                AssetLocation blockCode = BlockCodes[storedBlockid];
                 ushort blockId;
 
                 if (Angle != 0)
                 {
-                    string newCode = blockAccessor.GetBlock(blockCode).GetRotatedBlockCode(Angle);
+                    AssetLocation newCode = blockAccessor.GetBlock(blockCode).GetRotatedBlockCode(Angle);
                     blockId = blockAccessor.GetBlock(newCode).BlockId;
                 } else
                 {

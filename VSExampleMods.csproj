@@ -64,11 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockData.cs" />
     <Compile Include="NetworkApiTest.cs" />
     <Compile Include="RedirectLogs.cs" />
     <Compile Include="VillageGenerator.cs" />
-    <Compile Include="WorldEdit.cs" />
+    <Compile Include="OldWorldEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

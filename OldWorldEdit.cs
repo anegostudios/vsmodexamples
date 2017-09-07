@@ -12,7 +12,7 @@ namespace Vintagestory.ModSamples
     /// <summary>
     /// This is an old version of the worldedit mod that always ships with the game. Might be an interesting read for you in understanding how to go about in making world edit tools.
     /// </summary>
-    public class WorldEdit : ModBase
+    public class OldWorldEdit : ModBase
     {
         ICoreServerAPI api;
         BlockPos startMarker, endMarker;
@@ -294,13 +294,13 @@ namespace Vintagestory.ModSamples
                 return;
             }
 
-            BlockData blockdata = null;
+            BlockSchematic blockdata = null;
 
             try
             {
                 using (TextReader textReader = new StreamReader(infilepath))
                 {
-                    blockdata = JsonConvert.DeserializeObject<BlockData>(textReader.ReadToEnd());
+                    blockdata = JsonConvert.DeserializeObject<BlockSchematic>(textReader.ReadToEnd());
                     textReader.Close();
                 }
             }
@@ -327,8 +327,7 @@ namespace Vintagestory.ModSamples
 
             IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true, false);
 
-            blockdata.Unpack(blockAcccessor, originPos);
-            blockdata.Place(blockAcccessor);
+            blockdata.Place(blockAcccessor, originPos);
 
             blockAcccessor.Commit();
         }
@@ -343,7 +342,7 @@ namespace Vintagestory.ModSamples
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));
 
-            BlockData blockdata = new BlockData();
+            BlockSchematic blockdata = new BlockSchematic();
 
             for (int x = startPos.X; x < finalPos.X; x++)
             {

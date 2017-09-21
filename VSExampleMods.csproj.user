@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>C:\Users\tyron\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
-    <StartArguments>/flatworld</StartArguments>
+    <StartArguments>--openWorld="modsamplestest" -p3</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartAction>Program</StartAction>

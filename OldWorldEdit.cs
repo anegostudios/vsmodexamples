@@ -327,7 +327,7 @@ namespace Vintagestory.ModSamples
 
             IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true, false);
 
-            blockdata.Place(blockAcccessor, originPos);
+            blockdata.Place(blockAcccessor, api.World, originPos);
 
             blockAcccessor.Commit();
         }

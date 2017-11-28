@@ -1,7 +1,7 @@
 {
 	code: "mygoldblock",
 	creativeinventory: { "general": ["*"] },
-	shape: { base: "block/basic/cube" },
+	shape: { base: "game:block/basic/cube" },
 	blockmaterial: "Stone",
 	drawtype: "Cube",
 	textures: {

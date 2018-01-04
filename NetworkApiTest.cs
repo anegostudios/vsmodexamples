@@ -1,4 +1,5 @@
-﻿using ProtoBuf;
+﻿using System;
+using ProtoBuf;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -24,6 +25,11 @@ namespace Vintagestory.ServerMods
     /// </summary>
     public class NetworkApiTest : ModBase
     {
+        public override ModInfo GetModInfo()
+        {
+            return null;
+        }
+
         #region Client
         IClientNetworkChannel clientChannel;
         ICoreClientAPI clientApi;
@@ -86,6 +92,8 @@ namespace Vintagestory.ServerMods
                 EnumChatType.Notification
             );
         }
-        #endregion 
+
+        
+        #endregion
     }
 }

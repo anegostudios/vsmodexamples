@@ -8,6 +8,11 @@ namespace VSExampleMods
     /// </summary>
     public class RedirectLogs : ModBase
     {
+        public override ModInfo GetModInfo()
+        {
+            return null;
+        }
+
         public override void StartServerSide(ICoreServerAPI api)
         {
             api.Server.Logger.AddListener(OnServerLogEntry);

@@ -23,6 +23,11 @@ namespace Vintagestory.ModSamples
 
         string exportFolderPath;
 
+        public override ModInfo GetModInfo()
+        {
+            return null;
+        }
+
         public override void StartServerSide(ICoreServerAPI api)
         {
             this.api = api;

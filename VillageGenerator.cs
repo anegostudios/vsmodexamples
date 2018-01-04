@@ -12,6 +12,17 @@ namespace Vintagestory.ModSamples
     {
         ICoreServerAPI api;
 
+        public override ModInfo GetModInfo()
+        {
+            return new ModInfo()
+            {
+                Author = "Tyron",
+                Description = "A collection of sample mods",
+                Name = "VS Sample Mods",
+                Type = EnumModType.Content
+            };
+        }
+
         public override void StartServerSide(ICoreServerAPI api)
         {
             this.api = api;

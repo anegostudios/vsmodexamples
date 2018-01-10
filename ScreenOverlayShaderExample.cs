@@ -120,8 +120,6 @@ float noise(vec3 p){
 }
 
 void main () {
-    vec2 uvOffseted = vec2(uv.x - 0.5, 2 * (uv.y - 0.5));
-
     float r = noise(vec3(uv.x + time, uv.y + time, 0));
     float g = noise(vec3(uv.x + time, uv.y + time, 1));
     float b = noise(vec3(uv.x + time, uv.y + time, 2));

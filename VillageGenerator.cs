@@ -19,6 +19,7 @@ namespace Vintagestory.ModSamples
                 Author = "Tyron",
                 Description = "A collection of sample mods",
                 Name = "VS Sample Mods",
+                Version = "1.0",
                 Type = EnumModType.Content
             };
         }

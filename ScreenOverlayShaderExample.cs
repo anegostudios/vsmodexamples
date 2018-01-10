@@ -28,8 +28,6 @@ namespace Vintagestory.ModSamples
             return side == EnumAppSide.Client;
         }
         
-
-
         public override void StartClientSide(ICoreClientAPI api)
         {
             base.StartClientSide(api);
@@ -123,7 +121,6 @@ float noise(vec3 p){
 
 void main () {
     vec2 uvOffseted = vec2(uv.x - 0.5, 2 * (uv.y - 0.5));
-	float strength = 1 - smoothstep(0.8, 0, length(uvOffseted));
 
     float r = noise(vec3(uv.x + time, uv.y + time, 0));
     float g = noise(vec3(uv.x + time, uv.y + time, 1));

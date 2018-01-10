@@ -10,7 +10,7 @@ namespace Vintagestory.ModSamples
 {
     /// <summary>
     /// Makes you all happy and giddy when you hold a chick in your hands
-    /// A sample on how to load your on custom shader and how to render with that shader with a quad model during the ortho/2d gui render pass
+    /// A sample on how to load your own custom shader and how to render with it with a quad model during the ortho/2d gui render pass
     /// </summary>
     public class ScreenOverlayShaderExample : ModBase
     {

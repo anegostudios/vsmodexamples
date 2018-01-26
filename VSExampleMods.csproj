@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NetworkApiTest.cs" />
+    <Compile Include="PushPlayerJoinLeave.cs" />
     <Compile Include="RedirectLogs.cs" />
     <Compile Include="ScreenOverlayShaderExample.cs" />
     <Compile Include="VillageGenerator.cs" />

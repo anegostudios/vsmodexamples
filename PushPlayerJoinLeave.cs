@@ -40,16 +40,24 @@ namespace VSExampleMods
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-            api.Event.PlayerJoin(OnJoin);
-            api.Event.PlayerLeave(OnLeave);
 
             string configtext = File.ReadAllText(Path.Combine(api.DataBasePath, "pushconfig.json"));
             try
             {
                 config = JsonConvert.DeserializeObject<PushConfig>(configtext);
-            } catch { }
+            }
+            catch { }
 
-            api.Server.LogNotification("Will push join/leave messages to " + config.Url);
+            if (config.Url != null && config.Url.Length > 0)
+            {
+                api.Event.PlayerJoin(OnJoin);
+                api.Event.PlayerDisconnect(OnLeave);
+
+                api.Server.LogNotification("Will push join/leave messages to " + config.Url);
+            } else
+            {
+                api.Server.LogNotification("No push url provided, won't push join/leave messages");
+            }
         }
 
         private void OnLeave(IServerPlayer byPlayer)

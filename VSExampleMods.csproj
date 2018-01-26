@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="NetworkApiTest.cs" />
     <Compile Include="RedirectLogs.cs" />
-    <Compile Include="ShaderExample.cs" />
+    <Compile Include="ScreenOverlayShaderExample.cs" />
     <Compile Include="VillageGenerator.cs" />
     <Compile Include="OldWorldEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

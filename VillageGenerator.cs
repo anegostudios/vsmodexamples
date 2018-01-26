@@ -28,8 +28,8 @@ namespace Vintagestory.ModSamples
         {
             this.api = api;
             
-            this.api.RegisterCommand("house", "Place a house with an NPC inside (demo mod)", "", CmdGenHouse, Privilege.controlserver);
-            this.api.RegisterCommand("block", "", "Places a block 2m in front of you", CmdBlock, Privilege.controlserver);
+            this.api.RegisterCommand("house", "Places a house (sample mod)", "", CmdGenHouse, Privilege.controlserver);
+            this.api.RegisterCommand("block", "", "Places a block 2m in front of you (sample mod)", CmdBlock, Privilege.controlserver);
         }
 
         private void CmdBlock(IServerPlayer player, int groupId, CmdArgs args)
@@ -61,8 +61,6 @@ namespace Vintagestory.ModSamples
             }
 
             blockAccessor.Commit();
-
-            api.AddNpc("Jeniffer", pos.UpCopy());
         }
     }
 }

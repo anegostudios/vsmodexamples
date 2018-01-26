@@ -18,13 +18,6 @@ namespace VSExampleMods
         public string ApiKey;
     }
 
-    public class JsonMessage
-    {
-        public string ApiKey;
-        public string Channel;
-        public string Message; 
-    }
-
     public class PushPlayerJoinLeave : ModBase
     {
         PushConfig config = new PushConfig();
@@ -61,12 +54,12 @@ namespace VSExampleMods
 
         private void OnLeave(IServerPlayer byPlayer)
         {
-            PushMessage(byPlayer.PlayerName + " left.");
+            PushMessage(byPlayer.PlayerName + " left the public game server.");
         }
 
         private void OnJoin(IServerPlayer byPlayer)
         {
-            PushMessage(byPlayer.PlayerName + " joined.");
+            PushMessage(byPlayer.PlayerName + " joined the public game server.");
         }
 
 
@@ -76,8 +69,8 @@ namespace VSExampleMods
 
             var values = new Dictionary<string, string>
             {
-               { "apikey", config.ApiKey },
-               { "channel", "multiplayer" },
+               { "api_key", config.ApiKey },
+               { "channel", config.Channel },
                { "message", message }
             };
 

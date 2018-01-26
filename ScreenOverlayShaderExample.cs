@@ -179,7 +179,7 @@ void main () {
             capi.Render.GlToggleBlend(true);
             overlayShaderProg.Uniform("time", capi.World.ElapsedMilliseconds / 1000f);
 
-            capi.Render.DrawMesh(quadRef);
+            capi.Render.RenderMesh(quadRef);
             overlayShaderProg.Stop();
 
 

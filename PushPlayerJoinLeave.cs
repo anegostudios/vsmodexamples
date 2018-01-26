@@ -14,7 +14,15 @@ namespace VSExampleMods
     public class PushConfig
     {
         public string Url;
+        public string Channel;
         public string ApiKey;
+    }
+
+    public class JsonMessage
+    {
+        public string ApiKey;
+        public string Channel;
+        public string Message; 
     }
 
     public class PushPlayerJoinLeave : ModBase
@@ -66,14 +74,11 @@ namespace VSExampleMods
         {
             HttpClient client = new HttpClient();
 
-            string json = string.Format(
-                "{ \"api_key\": \"{0}\", \"message\": \"{1}\" }", 
-                config.ApiKey, config.Url
-            );
-
             var values = new Dictionary<string, string>
             {
-               { "data", json },
+               { "apikey", config.ApiKey },
+               { "channel", "multiplayer" },
+               { "message", message }
             };
 
             var content = new FormUrlEncodedContent(values);

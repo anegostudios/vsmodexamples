@@ -41,11 +41,6 @@ namespace VSExampleMods
         }
 
 
-        public void Dispose()
-        {
-            api.Render.DeleteMesh(backPackMeshRef);
-        }
-        
         public override bool ShouldLoad(EnumAppSide side)
         {
             return side == EnumAppSide.Client;
@@ -58,16 +53,19 @@ namespace VSExampleMods
             api.Event.RegisterRenderer(this, EnumRenderStage.Opaque);
             api.Event.RegisterRenderer(this, EnumRenderStage.ShadowFar);
             api.Event.RegisterRenderer(this, EnumRenderStage.ShadowNear);
+            
         }
 
 
         public void OnRenderFrame(float deltaTime, EnumRenderStage stage)
         {
-            Block block = api.World.GetBlock(new AssetLocation("stationarybasket-north"));
-
-            backPackMeshRef = api.Render.UploadMesh(api.Tesselator.GetDefaultBlockMesh(block));
-            backPackTextureId = api.BlockTextureAtlas.Positions[0].atlasTextureId;
-            backPackTransform.Origin = block.GuiTransform.Origin;
+            if (backPackMeshRef == null)
+            {
+                Block block = api.World.GetBlock(new AssetLocation("stationarybasket-north"));
+                backPackMeshRef = api.Render.UploadMesh(api.Tesselator.GetDefaultBlockMesh(block));
+                backPackTextureId = api.BlockTextureAtlas.Positions[0].atlasTextureId;
+                backPackTransform.Origin = block.GuiTransform.Origin;
+            }
 
             for (int i = 0; i < api.World.AllPlayers.Length; i++)
             {
@@ -140,6 +138,12 @@ namespace VSExampleMods
 
             if (!isShadowPass) prog.Stop();
         }
+
+        public void Dispose()
+        {
+            api.Render.DeleteMesh(backPackMeshRef);
+        }
+
 
     }
 }

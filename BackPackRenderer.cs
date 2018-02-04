@@ -56,6 +56,8 @@ namespace VSExampleMods
         {
             this.api = api;
             api.Event.RegisterRenderer(this, EnumRenderStage.Opaque);
+            api.Event.RegisterRenderer(this, EnumRenderStage.ShadowFar);
+            api.Event.RegisterRenderer(this, EnumRenderStage.ShadowNear);
         }
 
 
@@ -73,9 +75,10 @@ namespace VSExampleMods
                 EntityShapeRenderer rend = plr.Entity.Renderer as EntityShapeRenderer;
                 if (rend == null) continue;
 
-                RenderBackPack(plr.Entity, rend, false);
+                RenderBackPack(plr.Entity, rend, stage != EnumRenderStage.Opaque);
             }
         }
+        
 
         
         

@@ -40,13 +40,15 @@ namespace VSExampleMods
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-
-            string configtext = File.ReadAllText(Path.Combine(api.DataBasePath, "pushconfig.json"));
             try
             {
+                string configtext = File.ReadAllText(Path.Combine(api.DataBasePath, "pushconfig.json"));
                 config = JsonConvert.DeserializeObject<PushConfig>(configtext);
             }
-            catch { }
+            catch {
+                api.Server.LogNotification("Failed reading pushconfig.json");
+                return;
+            }
 
             if (config.Url != null && config.Url.Length > 0)
             {

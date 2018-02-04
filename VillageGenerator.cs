@@ -1,5 +1,6 @@
 ﻿using System;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 
@@ -23,6 +24,27 @@ namespace Vintagestory.ModSamples
                 Type = EnumModType.Content
             };
         }
+
+        private void OnPlayerJoin(IServerPlayer byPlayer)
+        {
+            BlockPos plrpos = byPlayer.Entity.Pos.AsBlockPos;
+
+            Block firebrickblock = api.World.GetBlock(new AssetLocation("claybricks-fire"));
+            ushort blockId = firebrickblock.BlockId;
+            api.World.BlockAccessor.SetBlock(blockId, plrpos.DownCopy());
+
+            // Check a 3x3x3 area for logs
+            int quantityLogs = 0;
+            api.World.BlockAccessor.WalkBlocks(
+                plrpos.AddCopy(-3, -3, -3),
+                plrpos.AddCopy(3, 3, 3),
+                (block, pos) => quantityLogs += block.Code.Path.Contains("log") ? 1 : 0
+            );
+
+            byPlayer.SendMessage(GlobalConstants.GeneralChatGroup, "You have " + quantityLogs + " logs nearby you", EnumChatType.Notification);
+        }
+
+
 
         public override void StartServerSide(ICoreServerAPI api)
         {

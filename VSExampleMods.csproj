@@ -53,8 +53,12 @@
       <HintPath>..\..\..\AppData\Roaming\Vintagestory\VintagestoryAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>..\..\..\AppData\Roaming\Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackPackRenderer.cs" />
     <Compile Include="NetworkApiTest.cs" />
     <Compile Include="PushPlayerJoinLeave.cs" />
     <Compile Include="RedirectLogs.cs" />

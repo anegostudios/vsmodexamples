@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackPackRenderer.cs" />
+    <Compile Include="HudOverlaySample.cs" />
     <Compile Include="NetworkApiTest.cs" />
     <Compile Include="PushPlayerJoinLeave.cs" />
     <Compile Include="RedirectLogs.cs" />

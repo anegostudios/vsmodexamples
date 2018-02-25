@@ -83,7 +83,7 @@ namespace VSExampleMods
         private void RenderBackPack(EntityPlayer entity, EntityShapeRenderer rend, bool isShadowPass)
         {
             IRenderAPI rpi = api.Render;
-            BlendEntityAnimator bea = rend.animator as BlendEntityAnimator;
+            BlendEntityAnimator bea = rend.curAnimator as BlendEntityAnimator;
             AttachmentPointAndPose apap = null;
 
             bea.AttachmentPointByCode.TryGetValue("Back", out apap);

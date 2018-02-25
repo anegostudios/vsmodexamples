@@ -30,7 +30,6 @@ namespace Vintagestory.ModSamples
         
         public override void StartClientSide(ICoreClientAPI api)
         {
-            base.StartClientSide(api);
             this.capi = api;
 
             api.Event.RegisterReloadShaders(LoadShader);

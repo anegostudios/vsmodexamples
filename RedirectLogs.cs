@@ -12,7 +12,15 @@ namespace VSExampleMods
     {
         public override ModInfo GetModInfo()
         {
-            return null;
+            return new ModInfo()
+            {
+                Name = "RedirectLogs",
+                Version = "1.0",
+                GameVersions = new string[] { "1.5+" },
+                Description = "Redirecting logs to VS",
+                Author = "Tyron",
+                Website = "https://github.com/anegostudios/vsmodexamples"
+            };
         }
 
         public override bool ShouldLoad(EnumAppSide side)

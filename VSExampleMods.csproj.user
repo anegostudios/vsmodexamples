@@ -2,15 +2,15 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Users\tyron\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
-    <StartArguments>--openWorld="modsamplestest" -p3 --addOrigin="C:\Users\tyron\Dropbox\vintagecraft\vsmodexamples\assets"</StartArguments>
+    <StartProgram>$(AppData)\Vintagestory\Vintagestory.exe</StartProgram>
+    <StartArguments>--openWorld="modsamplestest" -p3 --addOrigin="$(SolutionDir)assets"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Users\tyron\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
+    <StartProgram>$(AppData)\Vintagestory\Vintagestory.exe</StartProgram>
     <StartArguments>/flatworld</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <ReferencePath>C:\Users\jchappelle\AppData\Roaming\Vintagestory\;C:\Users\jchappelle\AppData\Roaming\Vintagestory\Lib\</ReferencePath>
+    <ReferencePath>$(AppData)\Vintagestory\;$(AppData)\Vintagestory\Lib\</ReferencePath>
   </PropertyGroup>
 </Project>

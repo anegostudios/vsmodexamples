@@ -73,8 +73,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) "%25appdata%25\Vintagestory\Mods\"
-copy $(TargetDir)\$(TargetName).pdb "%25appdata%25\Vintagestory\Mods\"
+    <PostBuildEvent>copy "$(TargetPath)" "%25appdata%25\Vintagestory\Mods\"
+copy "$(TargetDir)\$(TargetName).pdb" "%25appdata%25\Vintagestory\Mods\"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

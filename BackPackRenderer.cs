@@ -62,7 +62,7 @@ namespace VSExampleMods
             if (backPackMeshRef == null)
             {
                 Block block = api.World.GetBlock(new AssetLocation("stationarybasket-north"));
-                backPackMeshRef = api.Render.UploadMesh(api.Tesselator.GetDefaultBlockMesh(block));
+                backPackMeshRef = api.Render.UploadMesh(api.TesselatorManager.GetDefaultBlockMesh(block));
                 backPackTextureId = api.BlockTextureAtlas.Positions[0].atlasTextureId;
                 backPackTransform.Origin = block.GuiTransform.Origin;
             }

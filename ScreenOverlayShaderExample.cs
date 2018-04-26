@@ -147,7 +147,7 @@ void main () {
             this.overlayShaderProg = overlayShaderProg;
 
             MeshData quadMesh = QuadMeshUtil.GetCustomQuadModelData(-1, -1, 0, 2, 2);
-            quadMesh.rgba = null;
+            quadMesh.Rgba = null;
 
             quadRef = capi.Render.UploadMesh(quadMesh);
         }

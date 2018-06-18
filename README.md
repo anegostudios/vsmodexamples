@@ -11,3 +11,7 @@ directly from within Visual Studio.
   - **--rndWorld** always creates a new world
 - A tiny mod RedirectLogs.cs is included that redirects the log output into the visual studio output window for developement and testing. You should not ship your mod with this one. 
 - Even [Edit&Continue](https://msdn.microsoft.com/en-us/library/bcew296c.aspx) should work just fine \o/
+
+# Documentation
+
+For API Documentation and Guides please refer to [our official Wiki](http://wiki.vintagestory.at/)

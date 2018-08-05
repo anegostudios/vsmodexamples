@@ -12,16 +12,11 @@ namespace Vintagestory.ModSamples
     /// Makes you all happy and giddy when you hold a chick in your hands
     /// A sample on how to load your own custom shader and how to render with it with a quad model during the ortho/2d gui render pass
     /// </summary>
-    public class ScreenOverlayShaderExample : ModBase
+    public class ScreenOverlayShaderExample : ModSystem
     {
         ICoreClientAPI capi;
         IShaderProgram overlayShaderProg;
         ExampleOverlayRenderer renderer;
-
-        public override ModInfo GetModInfo()
-        {
-            return null;
-        }
 
         public override bool ShouldLoad(EnumAppSide side)
         {
@@ -40,7 +35,7 @@ namespace Vintagestory.ModSamples
         }
 
 
-        public void LoadShader()
+        public bool LoadShader()
         {
             overlayShaderProg = capi.Shader.NewShaderProgram();
             overlayShaderProg.VertexShader = capi.Shader.NewShader(EnumShaderType.VertexShader);
@@ -57,6 +52,8 @@ namespace Vintagestory.ModSamples
             {
                 renderer.overlayShaderProg = overlayShaderProg;
             }
+
+            return true;
         }
 
 

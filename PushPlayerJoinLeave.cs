@@ -18,20 +18,13 @@ namespace VSExampleMods
         public string ApiKey;
     }
 
-    public class PushPlayerJoinLeave : ModBase
+    /// <summary>
+    /// Pushes player join/leave events to a predefined url
+    /// </summary>
+    public class PushPlayerJoinLeave : ModSystem
     {
         PushConfig config = new PushConfig();
-
-        public override ModInfo GetModInfo()
-        {
-            return new ModInfo()
-            {
-                Author = "Tyron",
-                Version = "1",
-                Description = "Pushes player join/leave events to a predefined url",
-                Name = "PushJoinLeave"
-            };
-        }
+        
 
         public override bool ShouldLoad(EnumAppSide side)
         {

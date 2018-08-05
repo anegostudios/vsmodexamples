@@ -23,13 +23,8 @@ namespace Vintagestory.ServerMods
     /// <summary>
     /// A basic example of client<->server networking using a custom network communication
     /// </summary>
-    public class NetworkApiTest : ModBase
+    public class NetworkApiTest : ModSystem
     {
-        public override ModInfo GetModInfo()
-        {
-            return null;
-        }
-
         #region Client
         IClientNetworkChannel clientChannel;
         ICoreClientAPI clientApi;

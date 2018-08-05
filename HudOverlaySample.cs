@@ -12,15 +12,10 @@ namespace VSExampleMods
     /// <summary>
     /// Renders a progress bar hud in the top left corner of the screen
     /// </summary>
-    public class HudOverlaySample : ModBase
+    public class HudOverlaySample : ModSystem
     {
         ICoreClientAPI capi;
         WeirdProgressBarRenderer renderer;
-
-        public override ModInfo GetModInfo()
-        {
-            return null;
-        }
 
         public override bool ShouldLoad(EnumAppSide side)
         {

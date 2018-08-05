@@ -14,7 +14,7 @@ namespace VSExampleMods
     /// <summary>
     /// Puts a stationary basket on the back of every player
     /// </summary>
-    public class BackPackRenderer : ModBase, IRenderer
+    public class BackPackRenderer : ModSystem, IRenderer
     {
         ICoreClientAPI api;
 
@@ -116,7 +116,7 @@ namespace VSExampleMods
             
 
             Mat4f.Translate(tmpMat, tmpMat, backPackTransform.Origin.X, backPackTransform.Origin.Y, backPackTransform.Origin.Z);
-            Mat4f.Scale(tmpMat, tmpMat, backPackTransform.Scale, backPackTransform.Scale, backPackTransform.Scale);
+            Mat4f.Scale(tmpMat, tmpMat, backPackTransform.ScaleXYZ.X, backPackTransform.ScaleXYZ.Y, backPackTransform.ScaleXYZ.Z);
             Mat4f.Translate(tmpMat, tmpMat, (float)ap.PosX / 16f + backPackTransform.Translation.X, (float)ap.PosY / 16f + backPackTransform.Translation.Y, (float)ap.PosZ / 16f + backPackTransform.Translation.Z);
             Mat4f.RotateX(tmpMat, tmpMat, (float)(ap.RotationX + backPackTransform.Rotation.X) * GameMath.DEG2RAD);
             Mat4f.RotateY(tmpMat, tmpMat, (float)(ap.RotationY + backPackTransform.Rotation.Y) * GameMath.DEG2RAD);

@@ -9,21 +9,9 @@ namespace Vintagestory.ModSamples
     /// <summary>
     /// Super basic example on how to set blocks in the game
     /// </summary>
-    public class VillageGenerator : ModBase
+    public class VillageGenerator : ModSystem
     {
         ICoreServerAPI api;
-
-        public override ModInfo GetModInfo()
-        {
-            return new ModInfo()
-            {
-                Author = "Tyron",
-                Description = "A collection of sample mods",
-                Name = "VS Sample Mods",
-                Version = "1.0",
-                Type = EnumModType.Content
-            };
-        }
 
         private void OnPlayerJoin(IServerPlayer byPlayer)
         {

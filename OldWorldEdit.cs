@@ -12,7 +12,7 @@ namespace Vintagestory.ModSamples
     /// <summary>
     /// This is an old version of the worldedit mod that always ships with the game. Might be an interesting read for you in understanding how to go about in making world edit tools.
     /// </summary>
-    public class OldWorldEdit : ModBase
+    public class OldWorldEdit : ModSystem
     {
         ICoreServerAPI api;
         BlockPos startMarker, endMarker;
@@ -22,11 +22,7 @@ namespace Vintagestory.ModSamples
         int groupId;
 
         string exportFolderPath;
-
-        public override ModInfo GetModInfo()
-        {
-            return null;
-        }
+        
 
         public override void StartServerSide(ICoreServerAPI api)
         {
@@ -365,7 +361,7 @@ namespace Vintagestory.ModSamples
                 }
             }
 
-            blockdata.Pack(blockAcccessor, startPos);
+            blockdata.Pack(api.World, startPos);
 
             string outfilepath = Path.Combine(exportFolderPath, filename);
 

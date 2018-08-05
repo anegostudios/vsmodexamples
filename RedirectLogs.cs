@@ -8,21 +8,8 @@ namespace VSExampleMods
     /// <summary>
     /// Redirects all log entries into the visual studio output window. Only for your convenience during development and testing.
     /// </summary>
-    public class RedirectLogs : ModBase
+    public class RedirectLogs : ModSystem
     {
-        public override ModInfo GetModInfo()
-        {
-            return new ModInfo()
-            {
-                Name = "RedirectLogs",
-                Version = "1.0",
-                GameVersions = new string[] { "1.5+" },
-                Description = "Redirecting logs to VS",
-                Author = "Tyron",
-                Website = "https://github.com/anegostudios/vsmodexamples"
-            };
-        }
-
         public override bool ShouldLoad(EnumAppSide side)
         {
             return true;
@@ -30,12 +17,12 @@ namespace VSExampleMods
 
         public override void StartServerSide(ICoreServerAPI api)
         {
-            api.Server.Logger.AddListener(OnServerLogEntry);
+            api.Server.Logger.EntryAdded += OnServerLogEntry;
         }
 
         public override void StartClientSide(ICoreClientAPI api)
         {
-            api.World.Logger.AddListener(OnClientLogEntry);
+            api.World.Logger.EntryAdded += OnClientLogEntry;
         }
 
         private void OnClientLogEntry(EnumLogType logType, string message, object[] args)

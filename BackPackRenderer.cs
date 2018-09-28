@@ -20,7 +20,7 @@ namespace VSExampleMods
 
         MeshRef backPackMeshRef;
         int backPackTextureId;
-        float[] tmpMat = Mat4f.Create();
+        float[] modelMat = Mat4f.Create();
 
         ModelTransform backPackTransform = new ModelTransform()
         {
@@ -52,8 +52,7 @@ namespace VSExampleMods
             this.api = api;
             api.Event.RegisterRenderer(this, EnumRenderStage.Opaque);
             api.Event.RegisterRenderer(this, EnumRenderStage.ShadowFar);
-            api.Event.RegisterRenderer(this, EnumRenderStage.ShadowNear);
-            
+            api.Event.RegisterRenderer(this, EnumRenderStage.ShadowNear);            
         }
 
 
@@ -70,7 +69,7 @@ namespace VSExampleMods
             for (int i = 0; i < api.World.AllPlayers.Length; i++)
             {
                 IPlayer plr = api.World.AllPlayers[i];
-                EntityShapeRenderer rend = plr.Entity.Renderer as EntityShapeRenderer;
+                EntityShapeRenderer rend = plr.Entity.Properties.Client.Renderer as EntityShapeRenderer;
                 if (rend == null) continue;
 
                 RenderBackPack(plr.Entity, rend, stage != EnumRenderStage.Opaque);
@@ -90,16 +89,15 @@ namespace VSExampleMods
 
             if (apap == null || backPackMeshRef == null) return;
 
-            for (int i = 0; i < 16; i++) tmpMat[i] = rend.ModelMat[i];
+            for (int i = 0; i < 16; i++) modelMat[i] = rend.ModelMat[i];
 
             AttachmentPoint ap = apap.AttachPoint;
 
-            float[] mat = apap.Pose.AnimModelMatrix;
-            float[] orig = new float[16];
-            for (int i = 0; i < 16; i++) orig[i] = (float)api.Render.CameraMatrixOrigin[i];
+            float[] animModelMat = apap.Pose.AnimModelMatrix;
+            float[] viewMatrix = new float[16];
+            for (int i = 0; i < 16; i++) viewMatrix[i] = (float)api.Render.CameraMatrixOrigin[i];
 
-            if (!isShadowPass) Mat4f.Mul(tmpMat, orig, tmpMat);
-            Mat4f.Mul(tmpMat, tmpMat, mat);
+            Mat4f.Mul(modelMat, modelMat, animModelMat);
 
             IStandardShaderProgram prog = null;
 
@@ -115,23 +113,24 @@ namespace VSExampleMods
             }
             
 
-            Mat4f.Translate(tmpMat, tmpMat, backPackTransform.Origin.X, backPackTransform.Origin.Y, backPackTransform.Origin.Z);
-            Mat4f.Scale(tmpMat, tmpMat, backPackTransform.ScaleXYZ.X, backPackTransform.ScaleXYZ.Y, backPackTransform.ScaleXYZ.Z);
-            Mat4f.Translate(tmpMat, tmpMat, (float)ap.PosX / 16f + backPackTransform.Translation.X, (float)ap.PosY / 16f + backPackTransform.Translation.Y, (float)ap.PosZ / 16f + backPackTransform.Translation.Z);
-            Mat4f.RotateX(tmpMat, tmpMat, (float)(ap.RotationX + backPackTransform.Rotation.X) * GameMath.DEG2RAD);
-            Mat4f.RotateY(tmpMat, tmpMat, (float)(ap.RotationY + backPackTransform.Rotation.Y) * GameMath.DEG2RAD);
-            Mat4f.RotateZ(tmpMat, tmpMat, (float)(ap.RotationZ + backPackTransform.Rotation.Z) * GameMath.DEG2RAD);
-            Mat4f.Translate(tmpMat, tmpMat, -(backPackTransform.Origin.X), -(backPackTransform.Origin.Y), -(backPackTransform.Origin.Z));
+            Mat4f.Translate(modelMat, modelMat, backPackTransform.Origin.X, backPackTransform.Origin.Y, backPackTransform.Origin.Z);
+            Mat4f.Scale(modelMat, modelMat, backPackTransform.ScaleXYZ.X, backPackTransform.ScaleXYZ.Y, backPackTransform.ScaleXYZ.Z);
+            Mat4f.Translate(modelMat, modelMat, (float)ap.PosX / 16f + backPackTransform.Translation.X, (float)ap.PosY / 16f + backPackTransform.Translation.Y, (float)ap.PosZ / 16f + backPackTransform.Translation.Z);
+            Mat4f.RotateX(modelMat, modelMat, (float)(ap.RotationX + backPackTransform.Rotation.X) * GameMath.DEG2RAD);
+            Mat4f.RotateY(modelMat, modelMat, (float)(ap.RotationY + backPackTransform.Rotation.Y) * GameMath.DEG2RAD);
+            Mat4f.RotateZ(modelMat, modelMat, (float)(ap.RotationZ + backPackTransform.Rotation.Z) * GameMath.DEG2RAD);
+            Mat4f.Translate(modelMat, modelMat, -(backPackTransform.Origin.X), -(backPackTransform.Origin.Y), -(backPackTransform.Origin.Z));
 
             if (isShadowPass)
             {
-                Mat4f.Mul(tmpMat, api.Render.CurrentShadowProjectionMatrix, tmpMat);
-                api.Render.CurrentActiveShader.UniformMatrix("mvpMatrix", tmpMat);
+                Mat4f.Mul(modelMat, api.Render.CurrentShadowProjectionMatrix, modelMat);
+                api.Render.CurrentActiveShader.UniformMatrix("mvpMatrix", modelMat);
                 api.Render.CurrentActiveShader.Uniform("origin", rend.OriginPos);
             }
             else
             {
-                prog.ModelViewMatrix = tmpMat;
+                prog.ModelMatrix = modelMat;
+                prog.ViewMatrix = viewMatrix;
             }
 
             api.Render.RenderMesh(backPackMeshRef);

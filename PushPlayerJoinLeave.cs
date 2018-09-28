@@ -45,8 +45,8 @@ namespace VSExampleMods
 
             if (config.Url != null && config.Url.Length > 0)
             {
-                api.Event.PlayerJoin(OnJoin);
-                api.Event.PlayerDisconnect(OnLeave);
+                api.Event.PlayerJoin += OnJoin;
+                api.Event.PlayerDisconnect += OnLeave;
 
                 api.Server.LogNotification("Will push join/leave messages to " + config.Url);
             } else

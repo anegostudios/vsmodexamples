@@ -37,7 +37,7 @@ using Vintagestory.API.Config;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: ModInfo("Sample Mods", "game",
+[assembly: ModInfo("Sample Mods", "samplemods",
     Version = GameVersion.ShortGameVersion,
     Description = "The Vintage Story Sample Mods",
     Authors = new[] { "Tyron" },

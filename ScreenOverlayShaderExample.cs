@@ -27,7 +27,7 @@ namespace Vintagestory.ModSamples
         {
             this.capi = api;
 
-            api.Event.RegisterReloadShaders(LoadShader);
+            api.Event.ReloadShader += LoadShader;
             LoadShader();
 
             renderer = new ExampleOverlayRenderer(api, overlayShaderProg);

@@ -82,10 +82,10 @@ namespace VSExampleMods
         private void RenderBackPack(EntityPlayer entity, EntityShapeRenderer rend, bool isShadowPass)
         {
             IRenderAPI rpi = api.Render;
-            BlendEntityAnimator bea = rend.curAnimator as BlendEntityAnimator;
+            ClientAnimator animator = entity.AnimManager.Animator as ClientAnimator;
             AttachmentPointAndPose apap = null;
 
-            bea.AttachmentPointByCode.TryGetValue("Back", out apap);
+            animator.AttachmentPointByCode.TryGetValue("Back", out apap);
 
             if (apap == null || backPackMeshRef == null) return;
 
@@ -93,7 +93,7 @@ namespace VSExampleMods
 
             AttachmentPoint ap = apap.AttachPoint;
 
-            float[] animModelMat = apap.Pose.AnimModelMatrix;
+            float[] animModelMat = apap.CachedPose.AnimModelMatrix;
             float[] viewMatrix = new float[16];
             for (int i = 0; i < 16; i++) viewMatrix[i] = (float)api.Render.CameraMatrixOrigin[i];
 
@@ -138,7 +138,7 @@ namespace VSExampleMods
             if (!isShadowPass) prog.Stop();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             api.Render.DeleteMesh(backPackMeshRef);
         }

@@ -30,7 +30,7 @@ namespace Vintagestory.ModSamples
 
             exportFolderPath = api.GetOrCreateDataPath("WorldEdit");
 
-            api.RegisterPrivilege("worldedit", "Ability to use world edit tools");
+            api.Permissions.RegisterPrivilege("worldedit", "Ability to use world edit tools");
 
             api.RegisterCommand("wo", "World edit tools (Old Version)", "[ms|me|mc|mex|cla|clm|fillm|blu]", CmdEdit, "worldedit");
         }
@@ -212,11 +212,11 @@ namespace Vintagestory.ModSamples
         private void BlockLineup(BlockPos pos)
         {
             IBlockAccessor blockAccess = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
-            Block[] blocks = api.WorldManager.BlockTypes;
+            List<Block> blocks = api.World.Blocks;
 
 
             List<Block> existingBlocks = new List<Block>();
-            for (int i = 0; i < blocks.Length; i++)
+            for (int i = 0; i < blocks.Count; i++)
             {
                 if (blocks[i] == null || blocks[i].Code == null) continue;
                 existingBlocks.Add(blocks[i]);
@@ -352,7 +352,7 @@ namespace Vintagestory.ModSamples
                     for (int z = startPos.Z; z < finalPos.Z; z++)
                     {
                         BlockPos pos = new BlockPos(x, y, z);
-                        ushort blockid = blockAcccessor.GetBlockId(pos);
+                        int blockid = blockAcccessor.GetBlockId(pos);
                         if (blockid == 0) continue;
 
                         blockdata.BlocksUnpacked[pos] = blockid;

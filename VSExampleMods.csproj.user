@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>$(AppData)\Vintagestory\Vintagestory.exe</StartProgram>
-    <StartArguments>--openWorld="modsamplestest" -p3 --addOrigin="$(SolutionDir)assets"</StartArguments>
+    <StartArguments>--addOrigin="C:\Users\tyron\Documents\vintagestory\vsmodexamples\assets"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartAction>Program</StartAction>
@@ -12,5 +12,10 @@
   </PropertyGroup>
   <PropertyGroup>
     <ReferencePath>$(AppData)\Vintagestory\;$(AppData)\Vintagestory\Lib\</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug +Flatworld|AnyCPU'">
+    <StartProgram>C:\Users\tyron\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
+    <StartArguments>-oflatworld --addOrigin="C:\Users\tyron\Documents\vintagestory\vsmodexamples\assets"</StartArguments>
+    <StartAction>Program</StartAction>
   </PropertyGroup>
 </Project>

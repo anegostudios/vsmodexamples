@@ -43,8 +43,8 @@ namespace Vintagestory.ServerMods
 
         private void OnServerMessage(NetworkApiTestMessage networkMessage)
         {
-            clientApi.ShowChatNotification("Received following message from server: " + networkMessage.message);
-            clientApi.ShowChatNotification("Sending response.");
+            clientApi.ShowChatMessage("Received following message from server: " + networkMessage.message);
+            clientApi.ShowChatMessage("Sending response.");
             clientChannel.SendPacket(new NetworkApiTestResponse()
             {
                 response = "RE: Hello World!"

@@ -18,7 +18,7 @@ namespace Vintagestory.ModSamples
             BlockPos plrpos = byPlayer.Entity.Pos.AsBlockPos;
 
             Block firebrickblock = api.World.GetBlock(new AssetLocation("claybricks-fire"));
-            ushort blockId = firebrickblock.BlockId;
+            int blockId = firebrickblock.BlockId;
             api.World.BlockAccessor.SetBlock(blockId, plrpos.DownCopy());
 
             // Check a 3x3x3 area for logs
@@ -44,7 +44,7 @@ namespace Vintagestory.ModSamples
 
         private void CmdBlock(IServerPlayer player, int groupId, CmdArgs args)
         {
-            ushort blockID = api.WorldManager.GetBlockId(new AssetLocation("log-birch-ud"));
+            int blockID = api.WorldManager.GetBlockId(new AssetLocation("log-placed-birch-ud"));
             BlockPos pos = player.Entity.Pos.HorizontalAheadCopy(2).AsBlockPos;
             api.World.BlockAccessor.SetBlock(blockID, pos);
         }
@@ -52,7 +52,7 @@ namespace Vintagestory.ModSamples
         private void CmdGenHouse(IServerPlayer player, int groupId, CmdArgs args)
         {
             IBlockAccessor blockAccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
-            ushort blockID = api.WorldManager.GetBlockId(new AssetLocation("log-birch-ud"));
+            int blockID = api.WorldManager.GetBlockId(new AssetLocation("log-placed-birch-ud"));
             
             BlockPos pos = player.Entity.Pos.AsBlockPos;
 

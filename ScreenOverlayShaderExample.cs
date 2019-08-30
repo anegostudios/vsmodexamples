@@ -45,7 +45,7 @@ namespace Vintagestory.ModSamples
             overlayShaderProg.FragmentShader.Code = GetFragmentShaderCode();
 
             capi.Shader.RegisterMemoryShaderProgram("exampleoverlay", overlayShaderProg);
-            overlayShaderProg.PrepareUniformLocations("time");
+            //overlayShaderProg.PrepareUniformLocations("time");
             overlayShaderProg.Compile();
 
             if (renderer != null)

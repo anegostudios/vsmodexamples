@@ -38,6 +38,9 @@ namespace VSExampleMods
         MeshRef progressQuadRef;
         ICoreClientAPI capi;
 
+        Matrixf mvMatrix = new Matrixf();
+
+
         public double RenderOrder { get { return 0; } }
 
         public int RenderRange { get { return 10; } }
@@ -68,38 +71,35 @@ namespace VSExampleMods
             curShader.Uniform("tex2d", 0);
             curShader.Uniform("noTexture", 1f);
 
-            capi.Render.GlPushMatrix();
-
-            capi.Render.GlTranslate(10, 10, 50);
-            capi.Render.GlScale(100, 20, 0);
-
-            capi.Render.GlTranslate(0.5f, 0.5f, 0);
-            capi.Render.GlScale(0.5f, 0.5f, 0);
+            mvMatrix
+                .Set(capi.Render.CurrentModelviewMatrix)
+                .Translate(10, 10, 50)
+                .Scale(100, 20, 0)
+                .Translate(0.5f, 0.5f, 0)
+                .Scale(0.5f, 0.5f, 0)
+            ;
 
             curShader.UniformMatrix("projectionMatrix", capi.Render.CurrentProjectionMatrix);
-            curShader.UniformMatrix("modelViewMatrix", capi.Render.CurrentModelviewMatrix);
+            curShader.UniformMatrix("modelViewMatrix", mvMatrix.Values);
 
             capi.Render.RenderMesh(whiteRectangleRef);
-            capi.Render.GlPopMatrix();
 
 
             // Render progress bar
             float width = (capi.World.ElapsedMilliseconds / 10f) % 100;
 
-            capi.Render.GlPushMatrix();
-            capi.Render.GlTranslate(10, 10, 50);
-            capi.Render.GlScale(width, 20, 0);
-
-            capi.Render.GlTranslate(0.5f, 0.5f, 0);
-            capi.Render.GlScale(0.5f, 0.5f, 0);
-
-
+            mvMatrix
+                .Set(capi.Render.CurrentModelviewMatrix)
+                .Translate(10, 10, 50)
+                .Scale(width, 20, 0)
+                .Translate(0.5f, 0.5f, 0)
+                .Scale(0.5f, 0.5f, 0)
+            ;
+            
             curShader.UniformMatrix("projectionMatrix", capi.Render.CurrentProjectionMatrix);
-            curShader.UniformMatrix("modelViewMatrix", capi.Render.CurrentModelviewMatrix);
+            curShader.UniformMatrix("modelViewMatrix", mvMatrix.Values);
 
             capi.Render.RenderMesh(progressQuadRef);
-            capi.Render.GlPopMatrix();
-
         }
 
 

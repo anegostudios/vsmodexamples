@@ -140,7 +140,7 @@ namespace VSExampleMods
 
         public override void Dispose()
         {
-            api.Render.DeleteMesh(backPackMeshRef);
+            backPackMeshRef?.Dispose();
         }
 
 

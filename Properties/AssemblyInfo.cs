@@ -7,12 +7,12 @@ using Vintagestory.API.Config;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ServerModWorldEdit")]
+[assembly: AssemblyTitle("VSExampleMods")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ServerModWorldEdit")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("VSExampleMods")]
+[assembly: AssemblyCopyright("Copyright © 2016-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -40,5 +40,7 @@ using Vintagestory.API.Config;
 [assembly: ModInfo("Sample Mods", "samplemods",
     Version = GameVersion.ShortGameVersion,
     Description = "The Vintage Story Sample Mods",
+    Side = "Universal",
     Authors = new[] { "Tyron" },
-    RequiredOnClient = false)]
+    RequiredOnClient = true
+)]

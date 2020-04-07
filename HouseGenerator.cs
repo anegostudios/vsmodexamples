@@ -7,9 +7,9 @@ using Vintagestory.API.Server;
 namespace Vintagestory.ModSamples
 {
     /// <summary>
-    /// Super basic example on how to set blocks in the game
+    /// Super basic example on how to read/set blocks in the game
     /// </summary>
-    public class VillageGenerator : ModSystem
+    public class HouseGenerator : ModSystem
     {
         ICoreServerAPI api;
 
@@ -37,9 +37,10 @@ namespace Vintagestory.ModSamples
         public override void StartServerSide(ICoreServerAPI api)
         {
             this.api = api;
-            
-            this.api.RegisterCommand("house", "Places a house (sample mod)", "", CmdGenHouse, Privilege.controlserver);
-            this.api.RegisterCommand("block", "", "Places a block 2m in front of you (sample mod)", CmdBlock, Privilege.controlserver);
+
+            api.Event.PlayerJoin += OnPlayerJoin;
+            api.RegisterCommand("house", "Places a house (sample mod)", "", CmdGenHouse, Privilege.controlserver);
+            api.RegisterCommand("block", "", "Places a block 2m in front of you (sample mod)", CmdBlock, Privilege.controlserver);
         }
 
         private void CmdBlock(IServerPlayer player, int groupId, CmdArgs args)
@@ -52,7 +53,7 @@ namespace Vintagestory.ModSamples
         private void CmdGenHouse(IServerPlayer player, int groupId, CmdArgs args)
         {
             IBlockAccessor blockAccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
-            int blockID = api.WorldManager.GetBlockId(new AssetLocation("log-placed-birch-ud"));
+            int blockID = api.WorldManager.GetBlockId(new AssetLocation("log-placed-oak-ud"));
             
             BlockPos pos = player.Entity.Pos.AsBlockPos;
 

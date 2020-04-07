@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>$(AppData)\Vintagestory\Vintagestory.exe</StartProgram>
-    <StartArguments>--addOrigin="C:\Users\tyron\Documents\vintagestory\vsmodexamples\assets"</StartArguments>
+    <StartArguments>--addOrigin="C:\Users\tyron\Documents\vintagestory\vsmodexamples\assets" --addModPath="C:\Users\tyron\Documents\vintagestory\vsmodexamples\bin\Debug"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartAction>Program</StartAction>
@@ -15,7 +15,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug +Flatworld|AnyCPU'">
     <StartProgram>C:\Users\tyron\AppData\Roaming\Vintagestory\Vintagestory.exe</StartProgram>
-    <StartArguments>-oflatworld --addOrigin="C:\Users\tyron\Documents\vintagestory\vsmodexamples\assets"</StartArguments>
+    <StartArguments>--addOrigin="C:\Users\tyron\Documents\vintagestory\vsmodexamples\assets" -osamplemods --addModPath="C:\Users\tyron\Documents\vintagestory\vsmodexamples\bin\Debug"</StartArguments>
     <StartAction>Program</StartAction>
   </PropertyGroup>
 </Project>

@@ -73,7 +73,7 @@ namespace CustomShapeBlock
                     Block ownBlock = api.World.BlockAccessor.GetBlock(Pos);
 
                     // Loads the mesh from a model created by VS Model Creator, but you could just as well create a mesh in code, e.g. via QuadMeshUtil.GetCustomQuad();
-                    Shape shape = capi.Assets.TryGet(new AssetLocation("sampleassets", "shapes/customshapes/plane.json")).ToObject<Shape>();
+                    Shape shape = capi.Assets.TryGet(new AssetLocation("customshapeblock", "shapes/customshapes/plane.json")).ToObject<Shape>();
                     texPosition = capi.BlockTextureAtlas.GetPosition(ownBlock, "north");
                     capi.Tesselator.TesselateShape("customshape", shape, out plane, this);
 

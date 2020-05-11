@@ -1,0 +1,18 @@
+{
+	code: "customshape",
+	class: "BlockCustomShape",
+	entityClass: "CustomShape",
+	creativeinventory: { "general": ["*"] },
+	shape: { base: "game:block/basic/cube" },
+	blockmaterial: "Stone",
+	drawtype: "Json",
+	faceCullMode: "NeverCull",
+	textures: {
+		all: { base: "block/customshape" }
+	},
+	resistance: 3.5,
+	sounds: {
+		"place": "game:block/wood",
+		"walk": "game:walk/wood"
+	}
+}

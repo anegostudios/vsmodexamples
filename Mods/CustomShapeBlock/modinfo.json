@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "customshapeblock",
+  "name": "CustomShapeBlock",
+  "author": "Unknown",
+  "description": ">>ADD YOUR DESCRIPTION HERE<<",
+  "version": "1.0.0",
+  "dependency": {
+    "game": "1.12.14"
+  }
+}

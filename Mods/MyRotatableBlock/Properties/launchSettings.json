@@ -3,7 +3,7 @@
 	"start-all-mods-in-sln": {
       "commandName": "Executable",
       "executablePath": "$(VINTAGE_STORY)/Vintagestory.exe",
-      "commandLineArgs": "--addModPath=\"$(SolutionDir)SourceMods\" \"$(SolutionDir)bin\" "
+      "commandLineArgs": "--addModPath=\"$(SolutionDir)bin\" "
     }
   }
 }

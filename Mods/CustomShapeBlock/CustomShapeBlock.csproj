@@ -10,6 +10,9 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>E:\Games\Vintagestory\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
     </Reference>

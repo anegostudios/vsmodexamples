@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vintagestory.API.Client;
+﻿using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 
-namespace Vintagestory.ModSamples
+namespace ScreenOverlayShaderExample
 {
     /// <summary>
     /// Makes you all happy and giddy when you hold a chick in your hands

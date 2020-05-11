@@ -28,14 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="assets\" />
     <Folder Include="src\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="assets\**">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Update="modinfo.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

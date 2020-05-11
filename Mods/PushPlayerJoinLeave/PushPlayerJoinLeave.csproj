@@ -10,6 +10,10 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
     </Reference>
@@ -28,14 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="assets\" />
     <Folder Include="src\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="assets\**">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Update="modinfo.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

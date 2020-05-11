@@ -4,7 +4,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 
-namespace Vintagestory.ModSamples
+namespace HouseGenerator
 {
     /// <summary>
     /// Super basic example on how to read/set blocks in the game

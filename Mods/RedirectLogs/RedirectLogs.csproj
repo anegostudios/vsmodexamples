@@ -25,18 +25,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="assets\" />
     <Folder Include="src\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="assets\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Update="modinfo.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <AssetFiles Include="$(OutDir)/assets/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="assets\**" />
+    <EmbeddedResource Remove="assets\**" />
+    <None Remove="assets\**" />
   </ItemGroup>
 
   <Target Name="CopyToBin" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Debug'">

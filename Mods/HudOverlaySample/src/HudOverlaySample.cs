@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vintagestory.API.Client;
+﻿using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
-namespace VSExampleMods
+namespace HudOverlaySample
 {
     /// <summary>
     /// Renders a progress bar hud in the top left corner of the screen
@@ -102,14 +97,10 @@ namespace VSExampleMods
             capi.Render.RenderMesh(progressQuadRef);
         }
 
-
-
         public void Dispose()
         {
             capi.Render.DeleteMesh(whiteRectangleRef);
             capi.Render.DeleteMesh(progressQuadRef);
         }
-
-
     }
 }

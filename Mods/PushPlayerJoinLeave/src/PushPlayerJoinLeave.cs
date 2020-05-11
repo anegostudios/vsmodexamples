@@ -1,15 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 
-namespace VSExampleMods
+namespace PushPlayerJoinLeave
 {
     public class PushConfig
     {

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
-using Vintagestory.API.Server;
 
-namespace VSExampleMods
+namespace CustomShapeBlock
 {
     /// <summary>
     /// Example on how to programmatically customize the shape of a block without adding an extra renderer to it

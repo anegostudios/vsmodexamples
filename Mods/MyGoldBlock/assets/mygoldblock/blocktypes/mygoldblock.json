@@ -1,14 +1,14 @@
 {
-	code: "mygoldblock",
-	creativeinventory: { "general": ["*"] },
-	shape: { base: "game:block/basic/cube" },
-	blockmaterial: "Stone",
-	drawtype: "Cube",
-	textures: {
-		all: { base: "block/mygoldtexture" }
+	"code": "mygoldblock",
+	"creativeinventory": { "general": ["*"] },
+	"shape": { "base": "game:block/basic/cube" },
+	"blockmaterial": "Stone",
+	"drawtype": "Cube",
+	"textures": {
+		"all": { "base": "block/mygoldtexture" }
 	},
-	resistance: 3.5,
-	sounds: {
+	"resistance": 3.5,
+	"sounds": {
 		"place": "game:block/anvil",
 		"walk": "game:walk/stone"
 	}

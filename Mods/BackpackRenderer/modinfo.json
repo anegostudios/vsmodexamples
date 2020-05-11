@@ -2,10 +2,10 @@
   "type": "code",
   "modid": "backpackrenderer",
   "name": "BackpackRenderer",
-  "author": "Unknown",
-  "description": ">>ADD YOUR DESCRIPTION HERE<<",
+  "authors": [ "Tyron" ],
+  "description": "",
   "version": "1.0.0",
   "dependency": {
-    "game": "1.12.14"
+    "game": ""
   }
 }

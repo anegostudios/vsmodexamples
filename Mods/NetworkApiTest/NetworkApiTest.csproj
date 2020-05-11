@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros">
+    <BinaryDir Condition="'$(Configuration)'=='Debug'">$(SolutionDir)/bin/$(AssemblyName)/</BinaryDir>
+    <ExcludeFiles Condition="'$(Configuration)'=='Debug'">**/VintagestoryAPI.*;**/VSCreativeMod.*;**/VSEssentials.*;**/VSSurvivalMod.*</ExcludeFiles>
+    <BinaryDir Condition="'$(Configuration)'=='Release'">$(SolutionDir)/release/$(AssemblyName)/</BinaryDir>
+    <ExcludeFiles Condition="'$(Configuration)'=='Release'">**/VintagestoryAPI.*;**/VSCreativeMod.*;**/VSEssentials.*;**/VSSurvivalMod.*;**/*.pdb</ExcludeFiles>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Update="modinfo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <OutFiles Include="$(OutDir)/**" Exclude="$(ExcludeFiles)" />
+  </ItemGroup>
+
+  <Target Name="CopyToBin" AfterTargets="AfterBuild">
+    <Copy SourceFiles="@(OutFiles)" DestinationFiles="@(OutFiles->'$(BinaryDir)/%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+  
+  <Target Name="CleanBin" AfterTargets="Clean">
+    <RemoveDir Directories="$(BinaryDir)" />
+  </Target>
+
+</Project>

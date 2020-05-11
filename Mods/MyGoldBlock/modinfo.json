@@ -1,0 +1,11 @@
+{
+  "type": "content",
+  "modid": "mygoldblock",
+  "name": "MyGoldBlock",
+  "author": "",
+  "description": "",
+  "version": "1.0.0",
+  "dependency": {
+    "game": "1.12.14"
+  }
+}

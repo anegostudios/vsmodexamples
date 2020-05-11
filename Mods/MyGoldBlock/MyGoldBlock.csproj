@@ -28,14 +28,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\" />
+    <Folder Include="assets\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="assets\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Update="modinfo.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <OutFiles Include="$(OutDir)/**" Exclude="$(ExcludeFiles)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="src\**" />
+    <EmbeddedResource Remove="src\**" />
+    <None Remove="src\**" />
   </ItemGroup>
 
   <Target Name="CopyToBin" AfterTargets="AfterBuild">

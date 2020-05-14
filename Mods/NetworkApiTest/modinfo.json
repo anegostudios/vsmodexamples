@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "networkapitest",
+  "name": "NetworkApiTest",
+  "authors": [ "Tyron" ],
+  "description": "",
+  "version": "1.0.0",
+  "dependency": {
+    "game": ""
+  }
+}

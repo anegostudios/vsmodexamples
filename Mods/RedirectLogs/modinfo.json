@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "modid": "redirectlogs",
+  "name": "RedirectLogs",
+  "authors": ["Tyron"],
+  "description": "Redirecting logs to VS",
+  "website": "https://github.com/anegostudios/vsmodtemplate",
+  "version": "1.0.0",
+  "dependencies": {
+    "game": ""
+  }
+}

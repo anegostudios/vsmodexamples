@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PushPlayerJoinLeave", "Mods
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenOverlayShaderExample", "Mods\ScreenOverlayShaderExample\ScreenOverlayShaderExample.csproj", "{8EB87089-DF25-4E29-B262-8B77EF09386D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticking", "Mods\Ticking\Ticking.csproj", "{CFD10D79-F845-465D-A9F8-2972FD2F70CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,12 @@ Global
 		{8EB87089-DF25-4E29-B262-8B77EF09386D}.Release x64|Any CPU.Build.0 = Release|Any CPU
 		{8EB87089-DF25-4E29-B262-8B77EF09386D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EB87089-DF25-4E29-B262-8B77EF09386D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD10D79-F845-465D-A9F8-2972FD2F70CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD10D79-F845-465D-A9F8-2972FD2F70CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD10D79-F845-465D-A9F8-2972FD2F70CB}.Release x64|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD10D79-F845-465D-A9F8-2972FD2F70CB}.Release x64|Any CPU.Build.0 = Release|Any CPU
+		{CFD10D79-F845-465D-A9F8-2972FD2F70CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD10D79-F845-465D-A9F8-2972FD2F70CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

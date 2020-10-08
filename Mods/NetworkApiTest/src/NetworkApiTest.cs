@@ -23,18 +23,22 @@ namespace NetworkApiTest
     /// </summary>
     public class NetworkApiTest : ModSystem
     {
+        public override void Start(ICoreAPI api)
+        {
+            api.Network.RegisterChannel("networkapitest")
+                .RegisterMessageType(typeof(NetworkApiTestMessage))
+                .RegisterMessageType(typeof(NetworkApiTestResponse))
+            ;
+        }
+
         #region Client
-        IClientNetworkChannel clientChannel;
         ICoreClientAPI clientApi;
 
         public override void StartClientSide(ICoreClientAPI api)
         {
             clientApi = api;
 
-            clientChannel =
-                api.Network.RegisterChannel("networkapitest")
-                .RegisterMessageType(typeof(NetworkApiTestMessage))
-                .RegisterMessageType(typeof(NetworkApiTestResponse))
+            api.Network.GetChannel("networkapitest")
                 .SetMessageHandler<NetworkApiTestMessage>(OnServerMessage)
             ;
         }
@@ -43,7 +47,7 @@ namespace NetworkApiTest
         {
             clientApi.ShowChatMessage("Received following message from server: " + networkMessage.message);
             clientApi.ShowChatMessage("Sending response.");
-            clientChannel.SendPacket(new NetworkApiTestResponse()
+            clientApi.Network.GetChannel("networkapitest").SendPacket(new NetworkApiTestResponse()
             {
                 response = "RE: Hello World!"
             });
@@ -52,17 +56,13 @@ namespace NetworkApiTest
         #endregion
 
         #region Server
-        IServerNetworkChannel serverChannel;
         ICoreServerAPI serverApi;
 
         public override void StartServerSide(ICoreServerAPI api)
         {
             serverApi = api;
 
-            serverChannel =
-                api.Network.RegisterChannel("networkapitest")
-                .RegisterMessageType(typeof(NetworkApiTestMessage))
-                .RegisterMessageType(typeof(NetworkApiTestResponse))
+            api.Network.GetChannel("networkapitest")
                 .SetMessageHandler<NetworkApiTestResponse>(OnClientMessage)
             ;
 
@@ -71,7 +71,7 @@ namespace NetworkApiTest
 
         private void OnNwTestCmd(IServerPlayer player, int groupId, CmdArgs args)
         {
-            serverChannel.BroadcastPacket(new NetworkApiTestMessage()
+            serverApi.Network.GetChannel("networkapitest").BroadcastPacket(new NetworkApiTestMessage()
             {
                 message = "Hello World!",
             });

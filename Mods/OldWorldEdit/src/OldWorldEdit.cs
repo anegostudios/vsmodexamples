@@ -210,8 +210,8 @@ namespace OldWorldEdit
 
         private void BlockLineup(BlockPos pos)
         {
-            IBlockAccessor blockAccess = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
-            List<Block> blocks = api.World.Blocks;
+            IBlockAccessor blockAccess = api.World.GetBlockAccessorBulkUpdate(true, true);
+            IList<Block> blocks = api.World.Blocks;
 
 
             List<Block> existingBlocks = new List<Block>();
@@ -239,7 +239,7 @@ namespace OldWorldEdit
         {
             int updated = 0;
 
-            IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
+            IBlockAccessor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
 
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));
@@ -325,7 +325,7 @@ namespace OldWorldEdit
             }
 
 
-            IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true, false);
+            IBlockAccessor blockAcccessor = api.World.GetBlockAccessorBulkUpdate(true, true, false);
 
             blockdata.Place(blockAcccessor, api.World, originPos);
 
@@ -337,7 +337,7 @@ namespace OldWorldEdit
         {
             int exported = 0;
 
-            IBlockAccessor blockAcccessor = api.WorldManager.GetBlockAccessor(false, false, false);
+            IBlockAccessor blockAcccessor = api.World.GetBlockAccessor(false, false, false);
 
             BlockPos startPos = new BlockPos(Math.Min(start.X, end.X), Math.Min(start.Y, end.Y), Math.Min(start.Z, end.Z));
             BlockPos finalPos = new BlockPos(Math.Max(start.X, end.X), Math.Max(start.Y, end.Y), Math.Max(start.Z, end.Z));

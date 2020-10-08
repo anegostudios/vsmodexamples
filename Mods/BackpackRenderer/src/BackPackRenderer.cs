@@ -66,6 +66,8 @@ namespace BackpackRenderer
                 EntityShapeRenderer rend = plr.Entity.Properties.Client.Renderer as EntityShapeRenderer;
                 if (rend == null) continue;
 
+                if (plr == api.World.Player && api.World.Player.CameraMode == EnumCameraMode.FirstPerson) continue;
+
                 RenderBackPack(plr.Entity, rend, stage != EnumRenderStage.Opaque);
             }
         }

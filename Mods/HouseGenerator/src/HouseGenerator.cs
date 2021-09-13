@@ -52,7 +52,7 @@ namespace HouseGenerator
 
         private void CmdGenHouse(IServerPlayer player, int groupId, CmdArgs args)
         {
-            IBlockAccessor blockAccessor = api.WorldManager.GetBlockAccessorBulkUpdate(true, true);
+            IBlockAccessor blockAccessor = api.World.GetBlockAccessorBulkUpdate(true, true);
             int blockID = api.WorldManager.GetBlockId(new AssetLocation("log-placed-oak-ud"));
             
             BlockPos pos = player.Entity.Pos.AsBlockPos;

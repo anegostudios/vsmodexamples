@@ -14,18 +14,18 @@ namespace Ticking
 
     public class TickingBlockEntity : BlockEntity
     {
-        private int timer;
+        private float timer;
 
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
-            RegisterGameTickListener(OnTick, 20);
+            RegisterGameTickListener(OnGameTick, 50);
         }
 
-        public void OnTick(float par)
+        public void OnGameTick(float dt)
         {
-            timer++;
-            if(timer > 60)
+            timer += dt;
+            if(timer >= 3)
             {
                 Block block = Api.World.BlockAccessor.GetBlock(Pos);
                 if (block.Code.Path.EndsWith("-on"))
@@ -44,13 +44,13 @@ namespace Ticking
         public override void ToTreeAttributes(ITreeAttribute tree)
         {
             base.ToTreeAttributes(tree);
-            tree.SetInt("timer", timer);
+            tree.SetFloat("timer", timer);
         }
 
         public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldAccessForResolve)
         {
             base.FromTreeAttributes(tree, worldAccessForResolve);
-            timer = tree.GetInt("timer");
+            timer = tree.GetFloat("timer");
         }
     }
 }

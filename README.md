@@ -30,4 +30,4 @@ Rider has native support for Visual Studio projects, and you are able to import 
 
 # Documentation
 
-For API Documentation and Guides please refer to [our official Wiki](http://wiki.vintagestory.at/)
+For API Documentation and Guides please refer to [our official Wiki](http://wiki.vintagestory.at/). A good starting point is the [Setting up your Development Environment](https://wiki.vintagestory.at/index.php?title=Modding:Setting_up_your_Development_Environment) page.

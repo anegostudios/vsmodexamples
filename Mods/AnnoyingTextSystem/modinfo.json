@@ -5,6 +5,7 @@
   "authors": ["Tyron"],
   "description": "",
   "version": "1.0.0",
+  "side" : "Client",
   "dependency": {
     "game": ""
   }

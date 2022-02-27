@@ -9,7 +9,7 @@ This repository contains multiple sample mods and a configured Visual Studio pro
 
 ## Jetbrains Rider IDE
 
-Rider has native support for Visual Studio projects, and you are able to import the entire folder which it'll configure for you.
+I you use the Rider IDE - it has native support for Visual Studio projects, and you are able to import the entire folder which it'll configure for you.
 - On each SLN (each mod folder, inside the VS project), you need to Right Click -> Add -> Add Reference -> `VintagestoryAPI.dll` in order to fix references
 - On Linux only, you need to edit your `Properties/launchSettings.json` to launch Mono instead of the exe directly, due to a [bug](https://youtrack.jetbrains.com/issue/RIDER-75160) in Rider, for example:
 ```json

@@ -4,7 +4,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedirectLogs", "Mods\RedirectLogs\RedirectLogs.csproj", "{203DFBF1-3599-43FD-8487-E1C79C2B788F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnnoyingTextSystem", "Mods\AnnoyingTextSystem\AnnoyingTextSystem.csproj", "{E5887703-490B-4F5C-AAB3-BA12D0A51EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabylonVS", "Mods\AnnoyingTextSystem\BabylonVS.csproj", "{E5887703-490B-4F5C-AAB3-BA12D0A51EB0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomShapeBlock", "Mods\CustomShapeBlock\CustomShapeBlock.csproj", "{CD7D6993-D39F-4FA9-ADEC-478988543194}"
 EndProject

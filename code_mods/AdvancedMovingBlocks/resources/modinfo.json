@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "name": "AdvancedMovingBlocks",
+  "modid": "advancedmovingblocks",
+  "description" : "Adds blocks that can be moved by right-clicking.",
+  "author": "CreativeMD (Updated by The Lazy Warlock)",
+  "version": "1.0.0",
+  "dependency": {
+    "game": "1.12"
+  },
+  "website": "https://wiki.vintagestory.at/index.php?title=Modding:Adding_Block_Behavior"
+}

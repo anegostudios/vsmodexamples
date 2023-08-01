@@ -1,0 +1,12 @@
+{
+    "type": "code",
+    "modid": "backpackrenderer",
+    "name": "BackpackRenderer",
+    "authors": [ "Tyron" ],
+    "description": "",
+    "version": "1.0.0",
+    "dependency": {
+      "game": ""
+    }
+  }
+  

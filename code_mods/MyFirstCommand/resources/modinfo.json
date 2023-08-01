@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "name": "MyFirstCommand",
+  "modid": "myfirstcommand",
+  "description": "Adds a very simple command!",
+  "author": "VeryGoodDog",
+  "version": "1.0.0",
+  "dependency": {
+    "game": "1.13"
+  }
+}

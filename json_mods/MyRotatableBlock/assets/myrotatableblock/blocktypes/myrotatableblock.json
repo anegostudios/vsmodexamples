@@ -1,0 +1,27 @@
+{
+  "code": "myrotatableblock",
+  "behaviors": [ { "name": "HorizontalOrientable" } ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "creativeinventory": { "general": [ "*" ] },
+  "drawtype": "json",
+  "shape": {
+    "base": "game:block/metal/anvil",
+    "rotateYByType": {
+      "*-north": 0,
+      "*-east": 270,
+      "*-south": 180,
+      "*-west": 90
+    }
+  },
+   "sidesolid": {
+    "all": "false"
+  },
+  "sideopaque": {
+    "all": "false"
+  }
+}

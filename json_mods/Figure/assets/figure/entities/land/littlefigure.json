@@ -1,0 +1,123 @@
+{
+  "code": "littlefigure",
+  "class": "EntityAgent",
+  "hitboxSize": {
+    "x": 0.4,
+    "y": 0.5
+  },
+  "deadHitboxSize": {
+    "x": 0.4,
+    "y": 0.5
+  },
+  "eyeHeight": 0.4,
+  "drops": [],
+  "client": {
+    "renderer": "Shape",
+    "shape": { "base": "entity/land/littlefigure" },
+    "texture": { "base": "game:block/wood/planks/birch1" },
+    "behaviors": [
+      { "code": "repulseagents" },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 0.2
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      { "code": "interpolateposition" }
+    ],
+    "animations": [
+      {
+        "code": "hurt",
+        "animation": "hurt",
+        "animationSpeed": 2.2,
+        "weight": 10,
+        "blendMode": "AddAverage"
+      },
+      {
+        "code": "die",
+        "animation": "die",
+        "animationSpeed": 1.25,
+        "weight": 10,
+        "blendMode": "AddAverage"
+      }
+    ]
+  },
+  "server": {
+    "behaviors": [
+      { "code": "repulseagents" },
+      {
+        "code": "controlledphysics",
+        "stepHeight": 0.2
+      },
+      {
+        "code": "health",
+        "currenthealth": 4,
+        "maxhealth": 4
+      },
+      {
+        "code": "deaddecay",
+        "hoursToDecay": 1
+      },
+      {
+        "code": "floatupwhenstuck",
+        "onlyWhenDead": true
+      },
+      {
+        "code": "despawn",
+        "minPlayerDistance": 48,
+        "minSeconds": 5
+      },
+      {
+        "code": "emotionstates",
+        "states": [
+          {
+            "code": "fleeondamage",
+            "duration": 10,
+            "chance": 0.2,
+            "slot": 0,
+            "prority": 1,
+            "accumType": "max"
+          }
+        ]
+      },
+      {
+        "code": "taskai",
+        "aitasks": [
+          {
+            "code": "idle",
+            "priority": 1.2,
+            "priorityForCancel": 1.35,
+            "minduration": 4000,
+            "maxduration": 6000,
+            "chance": 0.001,
+            "initialMinCoolDown": 2000,
+            "initialMaxCoolDown": 150000,
+            "mincooldown": 300000,
+            "maxcooldown": 10000000,
+            "animation": "think",
+            "animationSpeed": 1.25
+          },
+          {
+            "code": "wander",
+            "priority": 1.0,
+            "movespeed": 0.008,
+            "animationSpeed": 1.6,
+            "animation": "run",
+            "preferredLightLevel": 15
+          },
+          {
+            "code": "lookaround",
+            "priority": 0.5
+          }
+        ]
+      }
+    ]
+  },
+  "sounds": {
+    "hurt": "creature/figure-hurt",
+    "death": "creature/figure-death",
+    "idle": "creature/figure-idle"
+  }
+}

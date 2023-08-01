@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "name": "Tunnler",
+  "modid": "tunnler",
+  "description": "Adds a special pickaxe that can mine multiple blocks",
+  "author": "CreativeMD (Updated by The Lazy Warlock)",
+  "version": "1.0.1",
+  "dependency": {
+    "game": "1.12"
+  },
+  "website": "https://wiki.vintagestory.at/index.php?title=Modding:Advanced_Items"
+}

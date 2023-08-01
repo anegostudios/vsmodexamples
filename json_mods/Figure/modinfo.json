@@ -1,0 +1,11 @@
+{
+  "type": "content",
+  "modid": "figure",
+  "name": "Little Figure",
+  "author": "Unknown",
+  "description": "A little soldier walking around",
+  "version": "1.0.0",
+  "dependency": {
+    "game": "1.8"
+  }
+}

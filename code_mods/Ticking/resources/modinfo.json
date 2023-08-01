@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "name": "Ticking",
+  "modid": "ticking",
+  "description": "Adds a ticking block that changes states.",
+  "author": "CreativeMD (Updated by The Lazy Warlock)",
+  "version": "1.0.1",
+  "dependency": {
+    "game": "1.12"
+  },
+  "website": "https://wiki.vintagestory.at/index.php?title=Modding:Block_Entity"
+}

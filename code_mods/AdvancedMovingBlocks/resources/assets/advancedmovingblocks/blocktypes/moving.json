@@ -1,0 +1,22 @@
+{
+	"code": "advancedmoving",
+	"blockmaterial": "stone",
+  	"behaviors": [
+		{
+			"name": "AdvancedMoving"
+		}
+	],	
+	"creativeinventory": {
+		"general": [
+			"*"
+		]
+	},
+	"textures": {
+		"all": { "base": "block/moving"
+		}
+	},
+	"sounds": {
+		"place": "game:block/plant",
+		"break": "game:block/plant"
+	}
+}

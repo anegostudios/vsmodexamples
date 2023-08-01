@@ -1,0 +1,36 @@
+{
+  "code": "coolwand",
+  "creativeinventory": {
+    "general": ["*"]
+  },
+  "variantgroups": [
+		{
+    	"code": "tooltype",
+    	"states": ["shovel", "pickaxe", "axe"]
+  	}
+	],
+  "miningspeedByType": {
+    "*-shovel": {
+      "soil": 7,
+      "sand": 7,
+      "gravel": 4.4
+    },
+    "*-pickaxe": {
+      "stone": 7,
+      "metal": 7
+    },
+    "*-axe": {
+      "wood": 6,
+      "leaves": 4
+    }
+  },
+  "durabilityByType": {
+    "*-shovel": 4000,
+    "*-pickaxe": 3000,
+    "*-axe": 2000
+  },
+	"texture": {
+		"base": "item/wand",
+		"overlays": [ "item/wand-overlay-{tooltype}" ]
+	}
+}

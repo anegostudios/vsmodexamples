@@ -1,0 +1,65 @@
+﻿{
+  "code": "creature",
+  "class": "ItemCreature",
+  "maxstacksize": 64,
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [ "figure:littlefigure" ]
+    }
+  ],
+  "shape": {
+    "base": "figure:entity/land/littlefigure"
+  },
+  "texture": { "base": "game:block/wood/planks/birch1" },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ],
+    "creatures": [ "*" ]
+  },
+  "materialDensity": 600,
+  "guiTransform": {
+    "rotation": {
+      "x": 0,
+      "y": -90,
+      "z": -180
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.15,
+      "z": 0.5
+    },
+    "scale": 6
+  },
+  "fpHandTransform": {
+    "rotation": {
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.15,
+      "z": 0.5
+    },
+    "scale": 6
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0.15,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.15,
+      "z": 0.5
+    },
+    "scale": 6
+  }
+}

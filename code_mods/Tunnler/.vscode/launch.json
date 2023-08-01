@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Client (Debug)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${env:VINTAGE_STORY}/Vintagestory.exe",
+            "linux": {
+                "program": "${env:VINTAGE_STORY}/Vintagestory"
+            },
+            "osx": {
+                "program": "${env:VINTAGE_STORY}/Vintagestory"
+            },
+            "preLaunchTask": "build",
+            "args": [
+                // "--playStyle" , "preset-surviveandbuild",
+                // "--openWorld" , "modding test world",
+                "--tracelog","--addModPath","${workspaceFolder}/Tunnler/bin/Debug/Mods"
+            ],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Launch Server",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${env:VINTAGE_STORY}/VintagestoryServer.exe",
+            "linux": {
+                "program": "${env:VINTAGE_STORY}/VintagestoryServer"
+            },
+            "osx": {
+                "program": "${env:VINTAGE_STORY}/VintagestoryServer"
+            },
+            "preLaunchTask": "build",
+            "args": [
+                "--tracelog","--addModPath","${workspaceFolder}/Tunnler/bin/Debug/Mods"
+            ],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}

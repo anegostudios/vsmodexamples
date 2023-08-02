@@ -65,7 +65,7 @@ The first and recommended option would be to use the **template package**. This 
 
  1. Install the mod **template package**
 
-    [Mod template package](https://github.com/Th3Dilli/dotnet_mod_templates)
+    [Mod template package](https://github.com/anegostudios/VSdotnetModTemplates)
 
     ```shell
     dotnet new install VintageStory.Mod.Templates
@@ -144,7 +144,7 @@ The first and recommended option would be to use the **template package**. This 
 
 2.  Use the **Github template** to create a new mod
     
-    [Github Mod template](https://github.com/anegostudios/VSdotnetModTemplates)
+    [Github Mod template](https://github.com/anegostudios/vsmodtemplate)
 
     The Github Mod template provides a easy way to get the basics for mod setup so you can start directly with adding your modifications to the game.
 

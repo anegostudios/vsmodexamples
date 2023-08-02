@@ -5,4 +5,4 @@ This repository contains multiple sample mods which are configured as a .NET 7 p
 
 The folder `json_mods` contains mods purely made in json. Simply drop the folder of the mod you wanna test into your `Mods` folder and start the game.
 
-To setup a modding environment see our [Wiki](https://wiki.vintagestory.at/index.php/Modding:Setting_up_your_Development_Environment).
+For more information on modding see our [Wiki](https://wiki.vintagestory.at/index.php/Main_Page) section `Modding the Game`.

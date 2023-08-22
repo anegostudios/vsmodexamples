@@ -1,0 +1,14 @@
+{
+    "type": "code",
+    "modid": "treasurechest",
+    "name": "TreasureChest",
+    "authors": [
+        "Chapp007"
+    ],
+    "description": "Spawns treasure chest at random during world generation",
+    "version": "1.0.0",
+    "side": "server",
+    "dependencies": {
+        "game": ""
+    }
+}

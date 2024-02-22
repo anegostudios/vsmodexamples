@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "nativeInterop",
+    "name": "nativeInterop",
+    "authors": [
+        "Th3Dilli"
+    ],
+    "description": "A Sample to show how to interop with a native binary",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}

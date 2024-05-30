@@ -1,0 +1,14 @@
+{
+    "code": "trampoline",
+    "class": "vstutorial.trampoline",
+    "blockmaterial": "wood",
+    "creativeinventory": { "general": [ "*" ] },
+    "textures": {
+        "all": { "base": "block/trampoline" }
+    },
+    "sounds": {
+        "place": "game:block/plant",
+        "break": "game:block/plant"
+    }
+
+}

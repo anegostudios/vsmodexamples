@@ -22,7 +22,7 @@ namespace VSTutorial.Items
                 CauseEntity = byEntity
             };
             byEntity.ReceiveDamage(damage, 0.25f);
-            base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);
+            base.OnAttackingWith(world, byEntity, attackedEntity, itemslot);            
         }
     }
 }

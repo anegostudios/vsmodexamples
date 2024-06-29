@@ -1,4 +1,5 @@
-﻿using Vintagestory.API.Common;
+﻿using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 using VSTutorial.Blocks;
 using VSTutorial.Items;
 
@@ -22,7 +23,7 @@ namespace VSTutorial
              * After registering, any blocks with the property: ' ("class":"vstutorial.trampoline") ' will use the BlockTrampoline class.
              */
             api.RegisterBlockClass(Mod.Info.ModID + ".trampoline", typeof(BlockTrampoline));
-            api.RegisterItemClass(Mod.Info.ModID + ".thornsblade", typeof(ItemThornsBlade));
+            api.RegisterItemClass(Mod.Info.ModID + ".thornsblade", typeof(ItemThornsBlade));   
         }
     }
 }

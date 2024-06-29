@@ -1,0 +1,81 @@
+{
+    "code": "thornsblade",
+    "damagedby": [ "blockbreaking", "attacking" ],
+    "tool": "sword",
+    "texture": { "base": "item/tunnler" },
+    "creativeinventory": {
+        "general": [ "*" ],
+        "items": [ "*" ]
+    },
+    "attributes": {
+        "heldItemPitchFollow": 0.9,
+        "handbook": {
+            "groupBy": [ "blade-*" ]
+        }
+    },
+    "behaviors": [
+        { "name": "AnimationAuthoritative" }
+    ],
+    "shape": { "base": "item/thornsblade" },
+    "textures": {},
+    "heldTpHitAnimation": "spearhit",
+    "attackRange": 2.5,
+    "tooltier": 4,
+    "attackpower": 7,
+    "durability": 500,
+    "guiTransform": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": -89,
+            "y": 47,
+            "z": -13
+        },
+        "origin": {
+            "x": 0.6,
+            "y": -0.1,
+            "z": 0.44
+        },
+        "scale": 1.65
+    },
+    "groundTransform": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 3.4
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -1.03,
+            "y": -0.01,
+            "z": -0.56
+        },
+        "rotation": {
+            "x": -90,
+            "y": 0,
+            "z": 0
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 0.8
+    },
+
+}

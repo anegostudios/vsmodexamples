@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "The first entry to the wiki's code tutorial series. Creates a simple functional block.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}

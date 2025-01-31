@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -49,10 +45,7 @@ namespace VSTutorial.Commands
         ///     If you need to access server data, it is recommended to use a server-side command.
         /// </summary>
         /// <param name="api"></param>
-        public static void RegisterClientCommands(ICoreClientAPI api)
-        {
-
-        }
+        public static void RegisterClientCommands(ICoreClientAPI api) { }
         
         /// <summary>
         /// Every command we register should have a handler function. 
@@ -68,8 +61,12 @@ namespace VSTutorial.Commands
              */
             FuzzyEntityPos spawnPosition = (args.Caller.Player as IServerPlayer).GetSpawnPosition(false);
 
-            //Then, the player can 
+            //Then, the player can be teleported to this position.
             args.Caller.Player.Entity.TeleportTo(spawnPosition);
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            //The command was successfully executed, so the function returns TextCommandResult.Success().
             return TextCommandResult.Success();
         }
 

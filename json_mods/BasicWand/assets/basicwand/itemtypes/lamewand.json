@@ -1,5 +1,0 @@
-{
-	"code": "lamewand",
-	"creativeinventory": { "general": ["*"] },
-	"texture": { "base": "item/wand" }
-}

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Server;
 
 namespace VSTutorial.Commands
@@ -29,9 +30,16 @@ namespace VSTutorial.Commands
              * Registering commands uses a 'builder' pattern. There are a number of functions that can be added to a single command,
              *     without requiring you to store the object in a variable.
              */
-            //The argument given in the Create function will be how the command is called in-game.
-            api.ChatCommands.Create("sell")
-                .WithDescription("");
+            //The argument given in the create function will be how the command is called in-game.
+            api.ChatCommands.Create("spawn")
+                //This is a description of the command.
+                .WithDescription("Teleport to your spawn point.")
+                //This says that the command requires a player to use it - Not through a console.
+                .RequiresPlayer()
+                //The command requires the 'chat' permission. In essence, anyone can use the command.
+                .RequiresPrivilege(Privilege.chat)
+                //The command should be handled by the 'HandleSpawnCommand' function.   
+                .HandleWith(HandleSpawnCommand);
         }
 
         /// <summary>
@@ -49,10 +57,19 @@ namespace VSTutorial.Commands
         /// <summary>
         /// Every command we register should have a handler function. 
         /// When the command is used, this function will execute the command and determine if it was successful or not. 
+        /// In this particular instance, the command should teleport the user to their spawnpoint.
         /// </summary>
-        private static TextCommandResult HandleCommand(TextCommandCallingArgs args)
+        private static TextCommandResult HandleSpawnCommand(TextCommandCallingArgs args)
         {
-            //args.Caller.Player.InventoryManager.ActiveHotbarSlot.Itemstack = new ItemStack()
+            /* 
+             * First, the spawn position needs to be accessed. Passing 'false' here ensures that the players respawn uses (with a temporal gear) are not consumed.
+             * Casting args.Caller.Player to the IServerPlayer type gives us access to more data.
+             *    Note you can only do this on the server, but since the command is server-side, this is fine.
+             */
+            FuzzyEntityPos spawnPosition = (args.Caller.Player as IServerPlayer).GetSpawnPosition(false);
+
+            //Then, the player can 
+            args.Caller.Player.Entity.TeleportTo(spawnPosition);
             return TextCommandResult.Success();
         }
 

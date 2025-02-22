@@ -12,3 +12,4 @@ You can also copy the vstutorial folder directly into your mods folder for a fin
 ## Version History
  - 1.20.4
    - Verified working for version 1.20.4.
+   - Added support for clayforming recipe with red clay.

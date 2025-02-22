@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "blockvariants",
+  "name": "VS Wiki Block Variants Tutorial Mod",
+  "authors": [
+	"Nat @ Vintage Story Wiki"
+  ],
+  "description": "Block Variants Tutorial Mod.",
+  "version": "1.0.0"
+}

@@ -1,0 +1,25 @@
+{
+  "ingredient": {
+    "type": "item",
+    "code": "game:ingot-*",
+    "name": "metal",
+    "allowedVariants": [ "copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "silver", "gold", "iron", "lead", "tin", "zinc", "bismuth", "chromium", "electrum", "platinum", "titanium", "molybdochalkos", "meteoriciron", "steel" ]
+  },
+  "name": "sheet",
+  "pattern": [
+    [
+      "###_###",
+      "###_###",
+      "###_###",
+      "_______",
+      "###_###",
+      "###_###",
+      "###_###"
+    ]
+  ],
+  "output": {
+    "type": "block",
+    "code": "game:metalsheet-{metal}-down",
+    "quantity": 4
+  }
+}

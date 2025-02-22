@@ -1,0 +1,27 @@
+{
+	"ingredientPattern": "S,D",
+	"width": 1,
+	"height": 2,	
+	"ingredients": {
+		"S": {
+			"type": "item",
+			"code": "game:saw-*",
+			"isTool": true,
+			"toolDurabilityCost": 10
+		},
+		"D": {
+			"type": "block",
+			"code": "game:door-solid-*",
+			"name": "wood",
+			"returnedStack": {
+				"type": "item",
+				"code": "game:plank-{wood}",
+				"quantity": 2
+			}
+		}
+	},
+	"output": {
+		"type": "block",
+		"code": "game:door-sleek-windowed-{wood}"
+	}
+}

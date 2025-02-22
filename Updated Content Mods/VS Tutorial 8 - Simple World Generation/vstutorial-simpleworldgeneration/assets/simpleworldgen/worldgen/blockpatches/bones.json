@@ -1,0 +1,12 @@
+[
+	{
+		"comment": "Lots of bones and carcasses underground",
+		"blockCodes": [ "game:bonyremains-cowskull-up", "game:bonyremains-ribcage", "game:drycarcass-humanoid1", "game:drycarcass-humanoid2", "game:drycarcass-tiny", "game:drycarcass-small", "game:drycarcass-medium", "game:drycarcass-large" ],
+		"quantity": {
+			"avg": 1,
+			"var": 0
+		},
+		"chance": 120,
+		"placement": "Underground"
+	}
+]

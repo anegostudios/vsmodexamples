@@ -1,0 +1,20 @@
+{
+	"ingredientPattern": "_H_,GGG,GGG",
+	"width": 3,
+	"height": 3,
+	"ingredients": {
+		"H": {
+			"type": "item",
+			"code": "game:hammer-*",
+			"isTool": true
+		},
+		"G": {
+			"type": "item",
+			"code": "game:ingot-gold"
+		}
+	},
+	"output": {
+		"type": "block",
+		"code": "simplegoldblock"
+	}
+}

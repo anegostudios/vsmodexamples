@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "simpleworldgen",
+  "name": "VS Wiki Simple World Generation Tutorial Mod",
+  "authors": [
+	"Nat @ Vintage Story Wiki"
+  ],
+  "description": "Simple World Generation Tutorial Mod.",
+  "version": "1.0.0"
+}

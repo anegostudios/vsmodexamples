@@ -1,0 +1,32 @@
+[
+  {
+    "code": "sand",
+    "triesPerChunk": 8,
+    "generator": "disc-anywhere",
+    "attributes": {
+      "inblock": {
+        "code": "game:rock-*",
+        "name": "rock",
+        "allowedVariants": [ "andesite", "chalk", "chert", "conglomerate", "limestone", "claystone", "granite", "sandstone", "shale", "basalt", "peridotite", "phyllite", "slate" ]
+      },
+      "placeblock": { "code": "game:sand-{rock}" },
+      "genSurfaceBlockChance": 0,
+      "surfaceBlockChance": 0,
+      "radius": {
+        "dist": "gaussian",
+        "avg": 32,
+        "var": 32
+      },
+      "yPosRel": {
+        "dist": "uniform",
+        "avg": 0.5,
+        "var": 0.5
+      },
+      "thickness": {
+        "dist": "invexp",
+        "avg": 1.3,
+        "var": 3
+      }
+    }
+  }
+]

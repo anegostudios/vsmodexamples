@@ -1,0 +1,23 @@
+{
+  "ingredient": {
+    "type": "item",
+    "code": "game:stone-*",
+    "name": "rock",
+    "allowedVariants": [ "chert", "granite", "andesite", "basalt", "peridotite" ]
+  },
+  "pattern": [
+    [
+      "_#####_",
+      "_#####_",
+      "_#####_",
+      "_#####_",
+      "_#####_",
+      "_#####_"
+    ]
+  ],
+  "name": "Brick",
+  "output": {
+    "type": "item",
+    "code": "game:stonebrick-{rock}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "furtherrecipes",
+  "name": "VS Wiki Further Recipes Tutorial Mod",
+  "authors": [
+	"Nat @ Vintage Story Wiki"
+  ],
+  "description": "Further Recipes Tutorial Mod.",
+  "version": "1.0.0"
+}

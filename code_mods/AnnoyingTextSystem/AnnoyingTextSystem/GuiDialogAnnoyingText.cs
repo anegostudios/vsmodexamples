@@ -26,7 +26,7 @@ namespace AnnoyingTextSystem
 
             SingleComposer = capi.Gui.CreateCompo("myAwesomeDialog", dialogBounds)
                 .AddShadedDialogBG(bgBounds)
-                .AddDialogTitleBar("Heck yeah!", OnTitleBarCloseClicked)
+                .AddDialogTitleBar("Heck yeah!", null)
                 .AddStaticText("This is a piece of text at the center of your screen - Enjoy!", CairoFont.WhiteDetailText(), textBounds)
               .Compose()
             ;

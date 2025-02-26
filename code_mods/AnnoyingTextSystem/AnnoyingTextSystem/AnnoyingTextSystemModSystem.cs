@@ -20,8 +20,8 @@ namespace AnnoyingTextSystem
             dialog = new GuiDialogAnnoyingText(api);
 
             capi = api;
-            capi.Input.RegisterHotKey("annoyingtextgui", "Annoys you with annoyingly centered text", GlKeys.U, HotkeyType.GUIOrOtherControls);
-            capi.Input.SetHotKeyHandler("annoyingtextgui", ToggleGui);
+            capi.Input.RegisterHotKey("centeredtextbox", "Opens a very centered text box", GlKeys.U, HotkeyType.GUIOrOtherControls);
+            capi.Input.SetHotKeyHandler("centeredtextbox", ToggleGui);
         }
 
         private bool ToggleGui(KeyCombination comb)

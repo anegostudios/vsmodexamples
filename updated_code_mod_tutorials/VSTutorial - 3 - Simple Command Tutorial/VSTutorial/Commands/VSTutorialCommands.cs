@@ -63,8 +63,6 @@ namespace VSTutorial.Commands
 
             //Then, the player can be teleported to this position.
             args.Caller.Player.Entity.TeleportTo(spawnPosition);
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
 
             //The command was successfully executed, so the function returns TextCommandResult.Success().
             return TextCommandResult.Success();

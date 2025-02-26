@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "Entry #3 to the wiki's code tutorial series. Creates a /spawn command.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}

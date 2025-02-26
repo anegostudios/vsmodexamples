@@ -1,10 +1,7 @@
 ﻿using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
-using VSTutorial.BlockBehaviors;
-using VSTutorial.Blocks;
 using VSTutorial.Commands;
-using VSTutorial.Items;
 
 namespace VSTutorial
 {
@@ -14,28 +11,6 @@ namespace VSTutorial
      */    
     public class VSTutorialModSystem : ModSystem
     {
-        /*
-         * This function is automatically called on the server and client when a world is loaded.
-         * Here you can register any blocks, items, entities, and other stuff that needs to be on  both the client and server sides.
-         */
-        public override void Start(ICoreAPI api)
-        {
-            /*
-             * This registers a new block class to be used in the game.
-             * When registering anything, the name should be "{modid}.{objectname}" in lowercase. This helps avoid duplicate IDs when using multiple mods.
-             * After registering, any blocks with the property: ' ("class":"vstutorial.trampoline") ' will use the BlockTrampoline class.
-             */
-            api.RegisterBlockClass(Mod.Info.ModID + ".trampoline", typeof(BlockTrampoline));
-
-            /*
-             * This is very similar to the line above, however this registers an item class.
-             */
-            api.RegisterItemClass(Mod.Info.ModID + ".thornsblade", typeof(ItemThornsBlade));
-
-
-            api.RegisterBlockBehaviorClass(Mod.Info.ModID + ".moveable", typeof(BlockBehaviorMoveable));
-        }
-
         /// <summary>
         /// This function is automatically called only on the server when a world is loaded.
         /// It is often used to load server-side configs, or create server-side commands.

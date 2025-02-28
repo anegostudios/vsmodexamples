@@ -1,0 +1,20 @@
+[
+  {
+    "op": "add",
+    "path": "/client/behaviors/12",
+    "value": {
+      "code": "vstutorial.totalplaytime"
+    },
+    "file": "game:entities/humanoid/player.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/server/behaviors/13",
+    "value": {
+      "code": "vstutorial.totalplaytime"
+    },
+    "file": "game:entities/humanoid/player.json",
+    "side": "Server"
+  }
+]

@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "Entry #8 to the wiki's code tutorial series. Creates an entity behavior that tracks in-game play time, saves the data, and syncs it from server to client.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+} 

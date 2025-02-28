@@ -1,4 +1,4 @@
-﻿using AnnoyingTextSystem;
+﻿using VSTutorial.GUI;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 

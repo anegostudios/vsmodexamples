@@ -5,7 +5,7 @@
     "authors": [
         "Nat @ Vintage Story Wiki"
     ],
-    "description": "Entry #6 to the wiki's code tutorial series. Registers a hotkey and creates a simple GUI screen.",
+    "description": "Entry #7 to the wiki's code tutorial series. Shows the basics of how to patch some functions.",
     "version": "1.0.0",
     "dependencies": {
         "game": ""

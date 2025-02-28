@@ -1,6 +1,6 @@
 using Vintagestory.API.Client;
 
-namespace AnnoyingTextSystem
+namespace VSTutorial.GUI
 {
 
     /// <summary>
@@ -19,12 +19,13 @@ namespace AnnoyingTextSystem
         /// <param name="capi"></param>
         public GuiDialogCenteredTextBox(ICoreClientAPI capi) : base(capi)
         {
-            //Call our setup.
+            //Call our setup function.
             SetupDialog();
         }
 
         /// <summary>
         /// This setup function is essentially creating our GuiDialog, so it is ready to be shown when needed.
+        /// In this particular function, and with most GuiDialogs, you should calculate the bounds (where your elements will go) first, and then create the elements.
         /// </summary>
         private void SetupDialog()
         {
@@ -42,15 +43,23 @@ namespace AnnoyingTextSystem
             bgBounds.BothSizing = ElementSizing.FitToChildren;
             bgBounds.WithChildren(textBounds);
 
-            //Using the composer will actually create the dialog itself using the bounds 
-            SingleComposer = capi.Gui.CreateCompo("myAwesomeDialog", dialogBounds)
+            //Using the composer will actually create the dialog itself using the bounds supplied.
+            SingleComposer = capi.Gui.CreateCompo("CenteredTextBox", dialogBounds)
+                //add the background...
                 .AddShadedDialogBG(bgBounds)
-                .AddDialogTitleBar("Heck yeah!", OnTitleBarCloseClicked)
+                //now the title bar... We also need to register an event for when the X is clicked on the UI menu.
+                .AddDialogTitleBar("A centered text box!", OnTitleBarCloseClicked)
+                //and finally add the text in the text box.
                 .AddStaticText("This is a piece of text at the center of your screen - Enjoy!", CairoFont.WhiteDetailText(), textBounds)
-              .Compose()
-            ;
+                //Calling compose is what actually 'builds' the Gui menu.
+                .Compose();
         }
 
+        /// <summary>
+        /// Called when the 'X' is clicked on the title bar.
+        /// You could include custom logic in here to only allow closing the menu if certain conditions are met.
+        ///     Just keep in mind that pressing the 'esc' key or using the keycode will also close the UI without triggering this function.
+        /// </summary>
         private void OnTitleBarCloseClicked()
         {
             TryClose();

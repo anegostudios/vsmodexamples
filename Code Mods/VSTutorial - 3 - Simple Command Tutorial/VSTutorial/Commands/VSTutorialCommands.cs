@@ -60,28 +60,12 @@ namespace VSTutorial.Commands
              *    Note you can only do this on the server, but since the command is server-side, this is fine.
              */
             FuzzyEntityPos spawnPosition = (args.Caller.Player as IServerPlayer).GetSpawnPosition(false);
-
-            Entity[] entities = args.Caller.Player.WorldData.EntityPlayer.World.GetEntitiesAround(args.Caller.Pos, 5000, 5000);
-            int bowtorn = 0;
-            int dr = 0;
-            foreach (Entity e in entities)
-            {
-                if (e.Code.PathStartsWith("bowtorn"))
-                {
-                    bowtorn++;
-                }
-                else if (e.Code.PathStartsWith("drifter"))
-                {
-                    dr++;
-                }
-            }
             
-
             //Then, the player can be teleported to this position.
             args.Caller.Player.Entity.TeleportTo(spawnPosition);
 
             //The command was successfully executed, so the function returns TextCommandResult.Success().
-            return TextCommandResult.Success("Bowtorns:"+bowtorn+" : Drifters:"+dr);
+            return TextCommandResult.Success();
         }
 
     }

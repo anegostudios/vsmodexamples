@@ -32,14 +32,7 @@ namespace VSTutorial
         /// <param name="api"></param>
         public override void StartServerSide(ICoreServerAPI api)
         {
-            serverChannel = api.Network.GetChannel("networkapitest")
-                .SetMessageHandler<NetworkApiTestResponse>(OnClientMessage)
-            ;
-
-            api.ChatCommands.Create("nwtest")
-                .WithDescription("Send a test network message")
-                .RequiresPrivilege(Privilege.controlserver)
-                .HandleWith(new OnCommandDelegate(OnNwTestCmd));
+            
         }
 
         /// <summary>

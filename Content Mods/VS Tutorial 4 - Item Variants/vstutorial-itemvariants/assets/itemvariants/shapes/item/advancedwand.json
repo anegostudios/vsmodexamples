@@ -1,0 +1,59 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"head": "item/wand-blue",
+		"handle": "item/wand-handle"
+	},
+	"elements": [
+		{
+			"name": "origin",
+			"from": [ 11.0, 0.5, 7.7 ],
+			"to": [ 11.0, 0.5, 7.7 ],
+			"rotationOrigin": [ 8.0, 0.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#string", "uv": [ 0.0, 0.0, 0.5, 0.5 ] },
+				"east": { "texture": "#string", "uv": [ 0.0, 0.0, 0.5, 0.5 ] },
+				"south": { "texture": "#string", "uv": [ 0.0, 0.0, 0.5, 0.5 ] },
+				"west": { "texture": "#string", "uv": [ 0.0, 0.0, 0.5, 0.5 ] },
+				"up": { "texture": "#string", "uv": [ 0.0, 0.0, 0.5, 0.5 ] },
+				"down": { "texture": "#string", "uv": [ 0.0, 0.0, 0.5, 0.5 ] }
+			},
+			"children": [
+				{
+					"name": "handle",
+					"from": [ -11.0, -1.0, -0.5 ],
+					"to": [ 5.0, 0.5, 1.5 ],
+					"rotationOrigin": [ -3.0, -0.2, 0.0 ],
+					"faces": {
+						"north": { "texture": "#handle", "uv": [ 0.0, 0.0, 16.0, 1.0 ] },
+						"east": { "texture": "#handle", "uv": [ 0.0, 0.0, 2.0, 1.0 ] },
+						"south": { "texture": "#handle", "uv": [ 0.0, 0.0, 16.0, 1.0 ] },
+						"west": { "texture": "#handle", "uv": [ 0.0, 0.0, 2.0, 1.0 ] },
+						"up": { "texture": "#handle", "uv": [ 0.0, 0.0, 16.0, 2.0 ] },
+						"down": { "texture": "#handle", "uv": [ 0.0, 0.0, 16.0, 2.0 ] }
+					}
+				},
+				{
+					"name": "wand head",
+					"from": [ 3.0, -2.0, -2.0 ],
+					"to": [ 7.0, 2.0, 3.0 ],
+					"rotationOrigin": [ 3.0, -2.0, -2.0 ],
+					"faces": {
+						"north": { "texture": "#head", "uv": [ 0.0, 4.0, 4.0, 8.0 ] },
+						"east": { "texture": "#head", "uv": [ 0.0, 4.0, 5.0, 8.0 ] },
+						"south": { "texture": "#head", "uv": [ 0.0, 4.0, 4.0, 8.0 ] },
+						"west": { "texture": "#head", "uv": [ 0.0, 4.0, 5.0, 8.0 ] },
+						"up": { "texture": "#head", "uv": [ 0.0, 4.0, 4.0, 9.0 ] },
+						"down": { "texture": "#head", "uv": [ 0.0, 4.0, 4.0, 9.0 ] }
+					}
+				}
+			]
+		}
+	]}

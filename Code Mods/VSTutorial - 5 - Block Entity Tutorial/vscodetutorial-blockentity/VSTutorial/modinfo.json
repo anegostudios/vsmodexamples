@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "Entry #5 to the wiki's code tutorial series. Creates a block that can store data using a BlockEntity.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+} 

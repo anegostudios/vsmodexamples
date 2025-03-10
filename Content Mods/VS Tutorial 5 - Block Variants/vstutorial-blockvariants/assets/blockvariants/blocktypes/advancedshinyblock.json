@@ -1,0 +1,33 @@
+{
+	"code": "advancedshinyblock",
+	"creativeinventory": { "general": [ "*" ] },
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "gold", "iron" ]
+		},
+		{
+			"code": "condition",
+			"states": [ "good", "used" ]
+		}
+	],
+	"blockmaterial": "Stone",
+	"drawtype": "Cube",
+	"texturesbytype": {
+		"*-good": {
+			"all": {
+				"base": "block/shiny{type}texture"
+			}
+		},
+		"*-used": {
+			"all": {
+				"base": "block/shiny{type}texture-damaged"
+			}
+		}
+	},
+	"resistance": 3.5,
+	"sounds": {
+		"place": "game:block/anvil",
+		"walk": "game:walk/stone"
+	}
+}

@@ -1,0 +1,13 @@
+[
+	{
+		"comment": "Single loose sticks everywhere",
+		"blockCodes": [ "game:loosestick-free" ],
+		"minTemp": -2,
+		"minForest": 0,
+		"quantity": {
+			"avg": 4,
+			"var": 2
+		},
+		"chance": 3
+	}
+]

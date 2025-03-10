@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "Entry #4 to the wiki's code tutorial series. Creates a moveable block using a BlockBehavior.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+} 

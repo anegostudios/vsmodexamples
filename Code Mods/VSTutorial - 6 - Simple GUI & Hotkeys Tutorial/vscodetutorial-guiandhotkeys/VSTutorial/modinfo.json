@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "Entry #6 to the wiki's code tutorial series. Registers a hotkey and creates a simple GUI screen.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}

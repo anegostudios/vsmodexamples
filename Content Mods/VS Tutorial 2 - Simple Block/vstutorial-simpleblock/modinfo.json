@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "simpleblock",
+  "name": "VS Wiki Simple Block Tutorial Mod",
+  "authors": [
+    "Nat @ Vintage Story Wiki"
+  ],
+  "description": "Simple Block Tutorial Mod.",
+  "version": "1.0.0"
+}

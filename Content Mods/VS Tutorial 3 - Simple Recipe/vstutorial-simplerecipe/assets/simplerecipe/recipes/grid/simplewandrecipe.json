@@ -1,0 +1,19 @@
+{
+	"ingredientPattern": "Q,S,S",
+	"width": 1,
+	"height": 3,
+	"ingredients": {
+		"Q": {
+			"type": "item",
+			"code": "game:clearquartz"
+		},
+		"S": {
+			"type": "item",
+			"code": "game:stick"
+		}
+	},
+	"output": {
+		"type": "item",
+		"code": "simplewand"
+	}
+}

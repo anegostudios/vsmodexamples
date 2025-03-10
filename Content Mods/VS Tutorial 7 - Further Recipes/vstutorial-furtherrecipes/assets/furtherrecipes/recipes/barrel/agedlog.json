@@ -1,0 +1,23 @@
+{
+  "code": "aged-log",
+  "sealHours": 48,
+  "ingredients": [
+    {
+      "type": "item",
+      "code": "game:waterportion",
+      "litres": 1,
+      "consumeLitres": 1
+    },
+    {
+      "type": "block",
+      "code": "game:log-placed-*-ud",
+	  "name": "wood",
+      "quantity": 1
+    }
+  ],
+  "output": {
+    "type": "block",
+    "code": "game:log-placed-aged-ud",
+    "quantity": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "vstutorial",
+    "name": "VSTutorial",
+    "authors": [
+        "Nat @ Vintage Story Wiki"
+    ],
+    "description": "The second entry to the wiki's code tutorial series. Creates a sword that inflicts damage on the user.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}

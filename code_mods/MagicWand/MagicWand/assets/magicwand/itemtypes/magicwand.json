@@ -1,8 +1,0 @@
-{
-	"code": "magic",
-	"class": "ItemMagicWand",
-	"texture": { 
-		"base": "item/magicwand"
-	},
-	"creativeinventory": { "general": ["*"], "items": ["*"] }
-}

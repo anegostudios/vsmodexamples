@@ -7,9 +7,6 @@
 	"textureHeight": 16,
 	"textureSizes": {
 	},
-	"textures": {
-		"base": "item/simplewand"
-	},
 	"elements": [
 		{
 			"name": "origin",

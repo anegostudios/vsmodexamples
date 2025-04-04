@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "alpinestory",
+    "name": "Alpine Story",
+    "authors": [
+        "Zelfior"
+    ],
+    "description": "Immerse yourself in an alpine world.",
+    "version": "0.1.0",
+    "dependencies": {
+        "game": ""
+    }
+}

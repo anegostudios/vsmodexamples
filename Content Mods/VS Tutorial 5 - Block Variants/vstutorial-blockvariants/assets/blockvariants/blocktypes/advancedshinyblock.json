@@ -1,6 +1,9 @@
 {
 	"code": "advancedshinyblock",
-	"creativeinventory": { "general": [ "*" ] },
+	"creativeinventory": {
+		"general": [ "*" ],
+		"examplemod": [ "*" ]
+	},
 	"variantgroups": [
 		{
 			"code": "type",

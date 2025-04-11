@@ -1,6 +1,9 @@
 {
 	"code": "simplegoldblock",
-	"creativeinventory": { "general": [ "*" ] },
+	"creativeinventory": {
+		"general": [ "*" ],
+		"examplemod": [ "*" ]
+	},
 	"blockmaterial": "Stone",
 	"drawtype": "Cube",
 	"textures": {

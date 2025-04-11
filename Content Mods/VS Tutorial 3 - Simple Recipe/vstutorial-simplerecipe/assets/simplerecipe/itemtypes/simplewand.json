@@ -1,7 +1,8 @@
 {
   "code": "simplewand",
   "creativeinventory": {
-    "general": [ "*" ]
+    "general": [ "*" ],
+    "examplemod": [ "*" ]
   },
   "texture": {
     "base": "item/simplewand"

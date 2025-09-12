@@ -18,7 +18,7 @@ The code mods examples are configured using the .NET 7 templates. They should wo
 
 ## Example Mod Versions
 - Content Mods: 1.21.0
-- Code Mods: 1.20.4
+- Code Mods: 1.21.0
 
 ## Major Changes
 - All non-old code mods updated to use .NET 8 since v1.21.0.

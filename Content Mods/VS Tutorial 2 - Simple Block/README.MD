@@ -1,5 +1,5 @@
 # Vintage Story Example Mod 2 - Simple Block
-## Verified for game version 1.20.7.
+## Verified for game version 1.21.0.
 
 ## Usage
 This mod is an example mod designed to showcase a simple block. The appropriate wiki tutorial can be found here: [Simple Block](https://wiki.vintagestory.at/Modding:Content_Tutorial_Simple_Block).
@@ -10,8 +10,18 @@ Using the setup version allows you to follow along with the wiki tutorial.
 You can also copy the vstutorial folder directly into your mods folder for a finished copy of the mod.
 
 ## Version History
+ - 1.21.0
+   - Verified working for version 1.21.0.
  - 1.20.7
    - Verified working for version 1.20.7.
    - Added examplemod creative tab to block.
  - 1.20.4
    - Verified working for version 1.20.4.
+   
+## Verification Process
+ - Check 'Example Mod' creative tab.
+ - Check '(Example Mod) Simple Gold Block' block.
+   - Code should be "simpleblock:simplegoldblock"
+   - Block should be held in appropriate position.
+   - Block should be able to be placed on the ground.
+   - Block should make metallic sound effect when placed.

@@ -1,0 +1,64 @@
+{
+	"code": "creature",
+	"class": "ItemCreature",
+	"maxstacksize": 64,
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [
+				"jackrabbit"
+			]
+		}
+	],
+	"shapeByType": {
+		"*-jackrabbit": {
+			"base": "entity/jackrabbit"
+		}
+	},
+	"texturesByType": {
+		"*-jackrabbit": { "skin": { "base": "entity/jackrabbit-1" } }
+	},
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"creatures": [ "*" ],
+		"examplemod": [ "*" ],
+	},
+	"materialDensity": 600,
+	"guiTransformByType": {
+		"*-jackrabbit": {
+			"rotate": true,
+			"translation": {
+				"x": 2,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 4,
+				"y": -59,
+				"z": -180
+			},
+			"origin": {
+				"x": 0.54,
+				"y": 0.28,
+				"z": 0.5
+			},
+			"scale": 2.6
+		}
+	},
+	"tpHandTransformByType": {
+		"*-jackrabbit": {
+			"translation": {
+				"x": -0.8,
+				"y": -0.4,
+				"z": -0.5
+			},
+			"rotation": {
+				"x": -180,
+				"y": 0,
+				"z": -156
+			},
+			"scale": 0.7
+		}
+	}
+}

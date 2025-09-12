@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "entitycreation",
+  "name": "VS Wiki Entity Tutorial Mod",
+  "authors": [
+	"Nat @ Vintage Story Wiki"
+  ],
+  "description": "Entity Tutorial Mod.",
+  "version": "1.0.0"
+}

@@ -1,6 +1,6 @@
 # Vintage Story Example Code Mod 6 - Simple GUI & Hotkeys
 
-## Verified for game version 1.20.4.
+## Verified for game version 1.21.0.
 
 ## Usage
 This mod is an example code mod designed to showcase a simple GUI and hotkey. The appropriate wiki tutorial is not yet uploaded.
@@ -11,5 +11,13 @@ Using the setup version allows you to follow along with the wiki tutorial.
 This mod is designed to work on Windows with Visual Studio. It may require some changes to work with other operating systems or IDEs.
 
 ## Version History
+ - 1.21.0
+   - Verified working for version 1.21.0
+   - Updated to .NET 8.0.
+   - Update mod name in modinfo.
  - 1.20.4
    - Verified working for version 1.20.4.
+   
+## Verification Process
+ - Check project builds correctly.
+ - Press 'U'. See if GUI opens.

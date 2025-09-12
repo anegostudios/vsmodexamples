@@ -5,7 +5,8 @@
   "tool": "sword",
   "creativeinventory": {
     "general": [ "*" ],
-    "items": [ "*" ]
+    "items": [ "*" ],
+    "examplemod": [ "*" ]
   },
   "attributes": {
     "heldItemPitchFollow": 0.9,

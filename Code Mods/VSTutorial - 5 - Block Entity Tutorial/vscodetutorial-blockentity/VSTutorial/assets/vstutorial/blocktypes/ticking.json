@@ -13,7 +13,8 @@
 	"creativeinventory": {
 		"general": [
 			"*"
-		]
+		],
+		"examplemod": [ "*" ]
 	},
 	"blockmaterial": "Metal",
 	"drawtype": "cube",

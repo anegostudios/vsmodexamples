@@ -1,11 +1,11 @@
 {
     "type": "code",
     "modid": "vstutorial",
-    "name": "VSTutorial",
+    "name": "VSTutorial - Simple GUI Screen",
     "authors": [
         "Nat @ Vintage Story Wiki"
     ],
-    "description": "Entry #6 to the wiki's code tutorial series. Registers a hotkey and creates a simple GUI screen.",
+    "description": "Entry #6 to the wiki's code tutorial series. Registers a hotkey and creates a simple GUI screen. Defaults to 'U' key.",
     "version": "1.0.0",
     "dependencies": {
         "game": ""

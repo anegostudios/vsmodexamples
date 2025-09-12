@@ -1,4 +1,5 @@
 {
 	"block-tickingcounter-on": "Ticking Block On",
-	"block-tickingcounter-off": "Ticking Block Off"
+	"block-tickingcounter-off": "Ticking Block Off",
+	"game:tabname-examplemod": "Example Mod"
 }

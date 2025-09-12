@@ -2,7 +2,10 @@
     "code": "trampoline",
     "class": "vstutorial.trampoline",
     "blockmaterial": "wood",
-    "creativeinventory": { "general": [ "*" ] },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "examplemod": [ "*" ]
+  },
     "textures": {
         "all": { "base": "block/trampoline" }
     },

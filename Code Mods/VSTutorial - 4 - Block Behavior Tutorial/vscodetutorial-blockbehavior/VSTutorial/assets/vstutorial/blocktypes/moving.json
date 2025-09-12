@@ -10,7 +10,10 @@
       }
     }
   ],
-  "creativeinventory": { "general": [ "*" ] },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "examplemod": [ "*" ]
+  },
   "textures": {
     "all": { "base": "block/moving" }
   },

@@ -1,0 +1,286 @@
+ {
+	"code": "jackrabbit",
+	"class": "EntityAgent",
+	"hitboxSize": {
+		"x": 0.75,
+		"y": 0.5
+	},
+	"eyeHeight": 0.6,
+	"client": {
+		"renderer": "Shape",
+		"shape": { "base": "entity/jackrabbit" },
+		"textures": {
+			"skin": {
+				"base": "entity/jackrabbit-1",
+				"alternates": [
+					{
+						"base": "entity/jackrabbit-2"
+					},
+					{
+						"base": "entity/jackrabbit-3"
+					},
+					{
+						"base": "entity/jackrabbit-4"
+					}
+				]
+			}
+		},
+		"behaviors": [
+			{
+				"code": "repulseagents"
+			},
+			{
+				"code": "controlledphysics",
+				"stepHeight": 1.1251
+			},
+			{
+				"code": "floatupwhenstuck",
+				"onlyWhenDead": true
+			},
+			{
+				"code": "interpolateposition"
+			},
+			{
+				"code": "harvestable"
+			},
+			{
+				"code": "despawn",
+				"minPlayerDistance": 8,
+				"belowLightLevel": 8,
+				"minSeconds": 300
+			}
+		],
+		"animations": [
+			{
+				"code": "hurt",
+				"animation": "hurt",
+				"animationSpeed": 2.2,
+				"weight": 10,
+				"blendMode": "AddAverage"
+			},
+			{
+				"code": "dig",
+				"animation": "dig",
+				"animationSpeed": 1
+			},
+			{
+				"code": "longdig",
+				"animation": "longdig",
+				"animationSpeed": 1
+			},
+			{
+				"code": "die",
+				"animation": "death",
+				"animationSpeed": 1.25,
+				"weight": 10,
+				"blendMode": "Average",
+				"triggeredBy": { "onControls": [ "dead" ] }
+			},
+			{
+				"code": "idle",
+				"animation": "idle",
+				"blendMode": "AddAverage",
+				"easeOutSpeed": 4,
+				"triggeredBy": { "defaultAnim": true }
+			},
+			{
+				"code": "sleep",
+				"animation": "sleep",
+				"easeInSpeed": 4,
+				"easeOutSpeed": 4,
+				"blendMode": "Average"
+			},
+			{
+				"code": "sit",
+				"animation": "sit",
+				"easeInSpeed": 4,
+				"easeOutSpeed": 4,
+				"blendMode": "Average"
+			}
+		]
+	},
+	"server": {
+		"behaviors": [
+			{ "code": "repulseagents" },
+			{
+				"code": "controlledphysics",
+				"stepHeight": 1.1251
+			},
+			{
+				"code": "despawn",
+				"minPlayerDistance": 8,
+				"belowLightLevel": 8,
+				"minSeconds": 300
+			},
+			{
+				"code": "health",
+				"currenthealth": 5,
+				"maxhealth": 5
+			},
+			{
+				"code": "deaddecay",
+				"hoursToDecay": 96,
+				"decayedBlock": "carcass-tiny"
+			},
+			{
+				"code": "floatupwhenstuck",
+				"onlyWhenDead": true
+			},
+			{
+				"code": "harvestable",
+				"drops": [
+					{
+						"type": "item",
+						"code": "redmeat-raw",
+						"quantity": {
+							"avg": 2,
+							"var": 0
+						}
+					},
+					{
+						"type": "item",
+						"code": "hide-raw-small",
+						"quantity": {
+							"avg": 0.5,
+							"var": 0
+						}
+					}
+				]
+			},
+			{ "code": "breathe" },
+			{
+				"code": "taskai",
+				"aiCreatureType": "LandCreature",
+				"aitasks": [
+					{
+						"code": "fleeentity",
+						"entityCodes": [ "game:player", "game:wolf-male", "game:wolf-female", "game:fox-*", "game:hyena-male", "game:hyena-female", "game:bear-*" ],
+						"priority": 2,
+						"movespeed": 0.06,
+						"seekingRange": 14,
+						"instafleeOnDamageChance": 1,
+						"animation": "Run",
+						"animationSpeed": 2
+					},
+					{
+						"code": "getoutofwater",
+						"priority": 1.4,
+						"movespeed": 0.015,
+						"animation": "Walk",
+						"animationSpeed": 2.2
+					},
+					{
+						"code": "idle",
+						"priority": 1.38,
+						"minduration": 200000,
+						"maxduration": 800000,
+						"mincooldown": 10000,
+						"maxcooldown": 30000,
+						"priorityForCancel": 1.38,
+						"animation": "Sleep",
+						"whenNotInEmotionState": "aggressiveondamage",
+						"duringDayTimeFrames": [
+							{
+								"fromHour": 10,
+								"toHour": 18
+							},
+							{
+								"fromHour": 1,
+								"toHour": 4
+							}
+						],
+						"stopOnNearbyEntityCodes": [ "game:player", "game:wolf-male", "game:wolf-female", "game:fox-*", "game:hyena-male", "game:hyena-female" ],
+						"stopRange": 8,
+						"stopOnHurt": true
+					},
+					{
+						"code": "idle",
+						"priority": 1.2,
+						"priorityForCancel": 1.35,
+						"minduration": 2500,
+						"maxduration": 2500,
+						"mincooldown": 6000,
+						"maxcooldown": 20000,
+						"animation": "Sniff",
+						"animationSpeed": 1.25
+					},
+					{
+						"code": "idle",
+						"priority": 1.1,
+						"minduration": 1000,
+						"maxduration": 3000,
+						"mincooldown": 2000,
+						"maxcooldown": 30000,
+						"animation": "Idle"
+					},
+					{
+						"code": "wander",
+						"priority": 1.0,
+						"priorityForCancel": 1.35,
+						"movespeed": 0.01,
+						"animation": "Walk",
+						"preferredLightLevel": 20
+					},
+					{
+						"code": "idle",
+						"priority": 0.9,
+						"minduration": 5000,
+						"maxduration": 30000,
+						"mincooldown": 2000,
+						"maxcooldown": 120000,
+						"priorityForCancel": 1.28,
+						"animation": "Sit"
+					},
+					{
+						"code": "lookaround",
+						"priority": 0.5
+					}
+				]
+			}
+		],
+		"spawnConditions": {
+			"climate": {
+				"minTemp": -5,
+				"maxTemp": 25,
+				"minRain": 0.1,
+				"maxRain": 0.9,
+				"minForestOrShrubs": 0.05,
+				"maxForest": 1,
+				"maxShrubs": 1
+			},
+			"worldgen": {
+				"TriesPerChunk": {
+					"avg": 0.5,
+					"var": 0
+				},
+				"tryOnlySurface": true,
+				"groupSize": {
+					"dist": "uniform",
+					"avg": 3,
+					"var": 2
+				}				
+			},
+			"runtime": {
+				"group": "neutral",
+				"tryOnlySurface": true,
+				"chance": 0.05,
+				"maxQuantity": 10,
+				"__comment": "Make them spawn away from artifical light so they don't spawn inside farmland",
+				"maxLightLevel": 6,
+				"lightLevelType": "onlyBlockLight",
+				"groupSize": {
+					"dist": "uniform",
+					"avg": 3,
+					"var": 2
+				}
+			}
+		}
+	},
+	
+	"sounds": {
+		"hurt": "game:creature/hare-hurt",
+		"death": "game:creature/hare-hurt",
+		"idle": "game:creature/hare-idle"
+	},
+	"idleSoundChance": 0.03
+}

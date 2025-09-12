@@ -16,6 +16,9 @@ Content mods can be unzipped (or left zipped) and placed directly into the game'
 
 The code mods examples are configured using the .NET 7 templates. They should work out of the box with Visual Studio, but may require some confuration to work with other IDEs.		
 
-## Example Mod Versions Verified Against
-- Content Mods: 1.20.7
+## Example Mod Versions
+- Content Mods: 1.21.0
 - Code Mods: 1.20.4
+
+## Major Changes
+- All non-old code mods updated to use .NET 8 since v1.21.0.

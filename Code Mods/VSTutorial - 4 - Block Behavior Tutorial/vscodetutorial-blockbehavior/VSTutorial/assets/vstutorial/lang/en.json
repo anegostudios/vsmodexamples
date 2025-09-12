@@ -1,3 +1,4 @@
 {
-	"block-moveable": "Moving Block"
+	"block-moveable": "Moving Block",
+	"game:tabname-examplemod": "Example Mod" 
 }
